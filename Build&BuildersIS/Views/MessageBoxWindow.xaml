@@ -1,0 +1,19 @@
+﻿<Window x:Class="LibraryIS.MessageBoxWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryIS"
+        mc:Ignorable="d"
+        Title="CustomMessageBox" Height="149" Width="350"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent" 
+        WindowStartupLocation="CenterScreen" >
+    <Border Background="White" CornerRadius="10" Height="150" BorderBrush="Gray" BorderThickness="1" >
+        <Grid Margin="0,-1,0,0">
+            <TextBlock x:Name="MessageText" TextWrapping="Wrap" Margin="111,44,17,40" FontSize="16" TextAlignment="Center"  />
+            <Button x:Name="OkButton" Content="OK" Margin="258,109,10,10" Style="{StaticResource FlatYellowButtonStyle}" RenderTransformOrigin="0.5,0.5" Click="OkButton_Click">
+            </Button>
+            <Image Name="Image"  Margin="11,30,242,29" Height="90"/>
+        </Grid>
+    </Border>
+</Window>
