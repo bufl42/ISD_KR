@@ -78,7 +78,7 @@ namespace Build_BuildersIS.ViewModels
             }
 
             string passwordHash = HashFunc.ComputeSha256Hash(Password);
-            if (Authentication.AuthenticateUser(Username, passwordHash, out string userRole))
+            if (Authentication.AuthenticateUserByName(Username, passwordHash, out string userRole))
             {
                 var message = new MessageBoxWindow("Успешная авторизация!", true)
                 {
@@ -87,6 +87,7 @@ namespace Build_BuildersIS.ViewModels
                 };
                 window.Hide();
                 message.ShowDialog();
+                window.Show();
                 //var bookWindow = new BookWindow(Username, userRole);
                 //bookWindow.Closed += (sender, e) => WindowClosed(window);
                 //bookWindow.Show();

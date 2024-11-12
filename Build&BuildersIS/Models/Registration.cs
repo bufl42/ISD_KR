@@ -23,6 +23,19 @@ namespace Build_BuildersIS.Models
             return userCount == 0;
         }
 
+        public static bool IsEmailUnique(string email)
+        {
+            string query = "SELECT COUNT(*) FROM Users WHERE email = @Email";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@Email", email }
+            };
+
+            int userCount = DatabaseHelper.ExecuteScalar(query, parameters);
+
+            return userCount == 0;
+        }
+
         public static bool RegisterUser(string username, string email, string passwordHash)
         {
             string query = "INSERT INTO Users (name, passwordhash, role, email) VALUES (@Username, @PasswordHash, @UserRole, @Email)";

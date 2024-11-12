@@ -85,7 +85,7 @@ namespace Build_BuildersIS.ViewModels
                 return;
             }
 
-            if (!IsValidEmail(Email))
+            if (!EmailChecker.IsValidEmail(Email))
             {
                 ShowErrorMessage(window, "Почта введена некорректно", false);
                 return;
@@ -100,6 +100,12 @@ namespace Build_BuildersIS.ViewModels
             if (!Registration.IsUsernameUnique(Username))
             {
                 ShowErrorMessage(window, "Пользователь с таким именем уже существует.", false);
+                return;
+            }
+
+            if (!Registration.IsEmailUnique(Email))
+            {
+                ShowErrorMessage(window, "Пользователь с такой почтой уже существует.", false);
                 return;
             }
 
@@ -120,17 +126,7 @@ namespace Build_BuildersIS.ViewModels
             {
                 ShowErrorMessage(window, "Произошла ошибка при регистрации. Попробуйте снова.", false);
             }
-
-
-
         }
-        public bool IsValidEmail(string email)
-        {
-            if (string.IsNullOrWhiteSpace(email))
-                return false;
-
-            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-            return Regex.IsMatch(email, emailPattern);
-        }
+       
     }
 }
