@@ -16,7 +16,7 @@
         <vm:RegisterViewModel/>
     </Window.DataContext>
 
-    <Border Background="#FF484848" CornerRadius="12" BorderBrush="Black" BorderThickness="1" >
+    <Border Background="#FF484848" CornerRadius="15" BorderBrush="Black" BorderThickness="1" >
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -24,13 +24,13 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Button Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"  Style ="{StaticResource MinimizeButtonStyle}" Margin="223,10,35,7" >
+            <Button Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"  Style ="{StaticResource MinimizeButtonStyle}" Margin="238,10,35,5" >
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/Resources/minus.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
 
-            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="248,10,10,7">
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="263,10,10,5">
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform"/>
                 </Button.Background>

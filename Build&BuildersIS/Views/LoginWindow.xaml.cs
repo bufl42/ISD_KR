@@ -30,5 +30,6 @@ namespace Build_BuildersIS
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
+
     }
 }

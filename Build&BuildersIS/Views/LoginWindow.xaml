@@ -25,7 +25,7 @@
                 <RowDefinition Height="47*"/>
                 <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
-            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="262,12,15,3" >
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="262,12,10,3" >
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform" />
                 </Button.Background>
@@ -39,12 +39,12 @@
             <Label Content="I" Margin="158,33,112,174" FontSize="60" RenderTransformOrigin="0.537,0.517" FontFamily="Arial" Grid.RowSpan="2" Foreground="#FFFFCA0E" FontWeight="Bold"/>
             <Label Content="S" Margin="172,33,77,174" FontSize="60" RenderTransformOrigin="0.537,0.517" FontFamily="Arial" Grid.RowSpan="2" Foreground="#FFFFCA0E" FontWeight="Bold"/>
             <Label Content="  Build&amp;&#xD;&#xA;Builders" Margin="78,0,104,174" Grid.Row="1" FontSize="20" FontWeight="Bold" Foreground="#FFFFCA0E" FontFamily="Segoe UI Black"/>
-            <Button Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource MinimizeButtonStyle}" Margin="238,12,39,3"  >
+            <Button Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource MinimizeButtonStyle}" Margin="237,12,35,3"  >
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/Resources/minus.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
-            <Border Name="Overlay" Background="#80000000" Visibility="Collapsed" CornerRadius="12" Grid.RowSpan="3">
+            <Border Name="Overlay" Background="#80000000" Visibility="Collapsed" CornerRadius="15" Grid.RowSpan="3">
                 <Grid />
             </Border>
 
