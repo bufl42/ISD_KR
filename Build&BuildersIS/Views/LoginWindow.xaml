@@ -7,7 +7,7 @@
         xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels"
         mc:Ignorable="d"
         Title="Login"
-        Height="300"
+        Height="350"
         Width="299"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" 
@@ -18,26 +18,28 @@
     </Window.DataContext>
 
 
-    <Border Background="White" CornerRadius="12" BorderBrush="Gray" BorderThickness="1" >
-        <Grid>
+    <Border Background="#FF484848" CornerRadius="15" BorderBrush="Black" BorderThickness="1" Margin="0,0,0,0" >
+        <Grid Margin="0,-1,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="37*"/>
-                <RowDefinition Height="197*"/>
-                <RowDefinition Height="64*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="47*"/>
+                <RowDefinition Height="15*"/>
             </Grid.RowDefinitions>
-            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="262,12,15,5" >
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="262,12,15,3" >
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
-            <Label Content="Username:" Margin="58,74,167,94" Grid.Row="1" RenderTransformOrigin="0.5,0.5" FontSize="14"/>
-            <TextBox x:Name="UsernameTextBox" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="58,108,60,69" Grid.Row="1" FontSize="14" Height="20"/>
-            <Label Content="Password:" Margin="58,128,163,40" Grid.Row="1" RenderTransformOrigin="0.338,2.56" FontSize="14"/>
-            <TextBox x:Name="PasswordBox" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="58,157,60,20" Grid.Row="1" FontSize="14" Height="20"/>
-            <Button Content="Login"  Command="{Binding LoginCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="58,18,161,16" RenderTransformOrigin="0.15,0.118" Style="{StaticResource FlatYellowButtonStyle}" Grid.Row="2" FontSize="14" />
-            <Button Content="Register" Command="{Binding RegisterCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="159,18,60,16" Style="{StaticResource FlatYellowButtonStyle}" Grid.Row="2" FontSize="14"/>
-            <Label Content="  Build&amp;&#xD;&#xA;Builders" Margin="84,0,112,125" Grid.Row="1" FontSize="20" FontWeight="Bold"/>
-            <Button Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource MinimizeButtonStyle}" Margin="238,12,39,5"  >
+            <Label Content="Username:" Margin="59,86,149,117" Grid.Row="1" RenderTransformOrigin="0.5,0.5" FontSize="14" Foreground="#FFB8B8B8" FontFamily="Segoe UI Black"/>
+            <TextBox x:Name="UsernameTextBox" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="58,115,60,97" Grid.Row="1" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
+            <Label Content="Password:" Margin="59,145,149,58" Grid.Row="1" RenderTransformOrigin="0.338,2.56" FontSize="14" Foreground="#FFB8B8B8" FontFamily="Segoe UI Black"/>
+            <TextBox x:Name="PasswordBox" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="58,175,60,37" Grid.Row="1" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
+            <Button Content="LOGIN"  Command="{Binding LoginCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="58,23,161,22" RenderTransformOrigin="0.15,0.118" Style="{StaticResource FlatYellowButtonStyle}" Grid.Row="2" FontSize="14" FontFamily="Segoe UI Black" FontWeight="Bold" />
+            <Button Content="REGISTER" Command="{Binding RegisterCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="159,23,60,22" Style="{StaticResource FlatYellowButtonStyle}" Grid.Row="2" FontSize="14" FontWeight="Bold" FontFamily="Segoe UI Black"/>
+            <Label Content="I" Margin="158,33,112,174" FontSize="60" RenderTransformOrigin="0.537,0.517" FontFamily="Arial" Grid.RowSpan="2" Foreground="#FFFFCA0E" FontWeight="Bold"/>
+            <Label Content="S" Margin="172,33,77,174" FontSize="60" RenderTransformOrigin="0.537,0.517" FontFamily="Arial" Grid.RowSpan="2" Foreground="#FFFFCA0E" FontWeight="Bold"/>
+            <Label Content="  Build&amp;&#xD;&#xA;Builders" Margin="78,0,104,174" Grid.Row="1" FontSize="20" FontWeight="Bold" Foreground="#FFFFCA0E" FontFamily="Segoe UI Black"/>
+            <Button Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource MinimizeButtonStyle}" Margin="238,12,39,3"  >
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/Resources/minus.png" Stretch="Uniform"/>
                 </Button.Background>
@@ -45,8 +47,7 @@
             <Border Name="Overlay" Background="#80000000" Visibility="Collapsed" CornerRadius="12" Grid.RowSpan="3">
                 <Grid />
             </Border>
-            <Label Content="I" Margin="158,31,112,128" FontSize="60" RenderTransformOrigin="0.537,0.517" Grid.RowSpan="2" FontFamily="Arial"/>
-            <Label Content="S" Margin="171,31,78,128" FontSize="60" RenderTransformOrigin="0.537,0.517" Grid.RowSpan="2" FontFamily="Arial"/>
+
         </Grid>
     </Border>
 </Window>

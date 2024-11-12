@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -13,6 +14,7 @@ namespace Build_BuildersIS.ViewModels
     public class RegisterViewModel : BaseViewModel
     {
         private string _username;
+        private string _email;
         private string _password;
         private string _confirmPassword;
         private ICommand _registerCommand;
@@ -23,6 +25,16 @@ namespace Build_BuildersIS.ViewModels
             set
             {
                 _username = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Email
+        {
+            get => _email;
+            set
+            {
+                _email = value;
                 OnPropertyChanged();
             }
         }
@@ -67,6 +79,18 @@ namespace Build_BuildersIS.ViewModels
                 return;
             }
 
+            if (string.IsNullOrEmpty(Email))
+            {
+                ShowErrorMessage(window, "Необходимо ввести почту.", false);
+                return;
+            }
+
+            if (!IsValidEmail(Email))
+            {
+                ShowErrorMessage(window, "Почта введена некорректно", false);
+                return;
+            }
+
             if (string.IsNullOrEmpty(Password))
             {
                 ShowErrorMessage(window, "Пароль не может быть пустым.", false);
@@ -87,7 +111,7 @@ namespace Build_BuildersIS.ViewModels
 
             string passwordHash = HashFunc.ComputeSha256Hash(Password);
 
-            if (Registration.RegisterUser(Username, passwordHash))
+            if (Registration.RegisterUser(Username, Email, passwordHash))
             {
                 ShowErrorMessage(window, "Регистрация успешна!\nТеперь вы можете войти в систему.", true);
                 window.Close();
@@ -96,6 +120,17 @@ namespace Build_BuildersIS.ViewModels
             {
                 ShowErrorMessage(window, "Произошла ошибка при регистрации. Попробуйте снова.", false);
             }
+
+
+
+        }
+        public bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            return Regex.IsMatch(email, emailPattern);
         }
     }
 }

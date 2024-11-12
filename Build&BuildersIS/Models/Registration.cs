@@ -23,7 +23,7 @@ namespace Build_BuildersIS.Models
             return userCount == 0;
         }
 
-        public static bool RegisterUser(string username, string passwordHash)
+        public static bool RegisterUser(string username, string email, string passwordHash)
         {
             string query = "INSERT INTO Users (name, passwordhash, role, email) VALUES (@Username, @PasswordHash, @UserRole, @Email)";
             var parameters = new Dictionary<string, object>
@@ -31,7 +31,7 @@ namespace Build_BuildersIS.Models
                 { "@Username", username },
                 { "@PasswordHash", passwordHash },
                 { "@UserRole", "USR" },
-                { "@Email", "-" }
+                { "@Email", email }
             };
 
             try

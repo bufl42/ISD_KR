@@ -20,3 +20,26 @@ C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Build&B
 C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.csproj.CoreCompileInputs.cache
 C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.exe
 C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.pdb
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\bin\Debug\Build&BuildersIS.exe.config
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\bin\Debug\Build&BuildersIS.exe
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\bin\Debug\Build&BuildersIS.pdb
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.csproj.AssemblyReference.cache
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.csproj.SuggestedBindingRedirects.cache
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\LoginWindow.g.cs
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\MessageBoxWindow.g.cs
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\RegisterWindow.g.cs
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\App.g.cs
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS_MarkupCompile.cache
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS_MarkupCompile.lref
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\App.baml
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\LoginWindow.baml
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\MessageBoxWindow.baml
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\RegisterWindow.baml
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\WindowStyle.baml
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.g.resources
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build_BuildersIS.Properties.Resources.resources
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.csproj.GenerateResource.cache
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.csproj.CoreCompileInputs.cache
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.exe
+C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.pdb
