@@ -58,6 +58,7 @@
     <Compile Include="Models\ByteArrayToImageConverter.cs" />
     <Compile Include="Models\EmailChecker.cs" />
     <Compile Include="Models\Project.cs" />
+    <Compile Include="Models\WorkerTask.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

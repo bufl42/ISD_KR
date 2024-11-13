@@ -40,18 +40,42 @@
                 </Button.Background>
             </Button>
             <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,0,21" Background="#FFB8B8B8">
-                <Border Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19">
-                    <ListBox ItemsSource="{Binding Projects}" Background="Transparent" BorderBrush="Transparent" Margin="0,0,0,0">
+                <Grid Margin="0,0,461,-19" Background="#FFB8B8B8"/>
+                <Border Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19" Visibility="Collapsed">
+                    <ListBox x:Name="ProjectsListBox"  ItemsSource="{Binding Projects}" Background="Transparent" BorderBrush="Transparent" Margin="0,0,0,0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <Border BorderBrush="Transparent" BorderThickness="1" Margin="5" Padding="8" CornerRadius="15" Width="600" Height="90">
-                                    <Grid Margin="0,0,0,0">
-                                        <Image Source="{Binding ProjectImage, Converter={StaticResource ByteArrayToImageConverter}}" Margin="0,0,530,0" Width="60" Height="60"/>
-                                        <StackPanel Orientation="Vertical" Width="514" HorizontalAlignment="Right">
+                                <Border BorderBrush="Transparent" BorderThickness="1" Padding="8" CornerRadius="15" Width="606" Height="96" Margin="5" >
+                                    <Grid Margin="-9,-9,-9,-9">
+                                        <Image Source="{Binding ProjectImage, Converter={StaticResource ByteArrayToImageConverter}}" Margin="0,0,507,0" Width="NaN" Stretch="UniformToFill"/>
+                                        <StackPanel Orientation="Vertical" Width="499" HorizontalAlignment="Left" Margin="107,0,0,0">
                                             <TextBlock Text="{Binding ProjectName}" FontWeight="Bold" FontSize="14"/>
                                             <TextBlock Text="{Binding ProjectDescription}" FontSize="12" TextWrapping="Wrap"/>
                                             <TextBlock Text="{Binding StartDate, StringFormat=Start Date: \{0:yyyy-MM-dd\}}" FontSize="12"/>
                                             <TextBlock Text="{Binding EndDate, StringFormat=End Date: \{0:yyyy-MM-dd\}}" FontSize="12"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+                <Border Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19" Visibility="Visible">
+                    <ListBox x:Name="TasksListBox" 
+                             ItemsSource="{Binding WorkerTasks}"  
+                             HorizontalAlignment="Stretch" 
+                             VerticalAlignment="Stretch" Background="Transparent" BorderBrush="Transparent">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Transparent" BorderThickness="1" Padding="8" CornerRadius="15" Width="606" Height="96" Margin="5" >
+                                    <Grid Margin="-9,-9,-9,-9">
+                                        <Image Source="{Binding ObjectImage, Converter={StaticResource ByteArrayToImageConverter}}" Margin="0,0,507,0" Width="NaN" Stretch="UniformToFill"/>
+                                        <StackPanel Orientation="Vertical" Width="499" HorizontalAlignment="Left" Margin="107,0,0,0">
+                                            <TextBlock Text="{Binding TaskID, StringFormat=Номер задачи: {0}}" FontWeight="Bold" FontSize="14"/>
+                                            <TextBlock Text="{Binding ObjectAddress, StringFormat=Адрес: {0}}" FontSize="12"/>
+                                            <TextBlock Text="{Binding TaskDescription}" FontSize="12" TextWrapping="Wrap"/>
+                                            <TextBlock Text="{Binding TaskStatus, StringFormat=Статус: {0}}" FontSize="12"/>
+                                            <TextBlock Text="{Binding Deadline, StringFormat='Срок: {0:yyyy-MM-dd}'}" FontSize="12"/>
                                         </StackPanel>
                                     </Grid>
                                 </Border>
