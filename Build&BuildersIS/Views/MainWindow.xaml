@@ -1,0 +1,71 @@
+﻿<Window x:Class="Build_BuildersIS.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Build_BuildersIS"
+        xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels"
+        xmlns:ms="clr-namespace:Build_BuildersIS.Models"
+        mc:Ignorable="d"  WindowStyle="None" AllowsTransparency="True" Background="Transparent"  WindowStartupLocation="CenterScreen"
+        Title="Books" Height="550" Width="850" MouseDown="Window_MouseDown">
+
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ms:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
+    </Window.Resources>
+
+    <Border Background="#FF484848" CornerRadius="15" BorderBrush="Black" BorderThickness="1" Margin="0,0,0,0" >
+
+        <Grid Margin="0,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="650"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="395"/>
+            </Grid.RowDefinitions>
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="615,10,10,0" Grid.Column="1" >
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+            <Button Command="{Binding MinimizeCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource MinimizeButtonStyle}" Margin="590,10,35,0" Grid.Column="1"  >
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Resources/minus.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+            <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,0,21" Background="#FFB8B8B8">
+                <Border Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19">
+                    <ListBox ItemsSource="{Binding Projects}" Background="Transparent" BorderBrush="Transparent" Margin="0,0,0,0">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="Transparent" BorderThickness="1" Margin="5" Padding="8" CornerRadius="15" Width="600" Height="90">
+                                    <Grid Margin="0,0,0,0">
+                                        <Image Source="{Binding ProjectImage, Converter={StaticResource ByteArrayToImageConverter}}" Margin="0,0,530,0" Width="60" Height="60"/>
+                                        <StackPanel Orientation="Vertical" Width="514" HorizontalAlignment="Right">
+                                            <TextBlock Text="{Binding ProjectName}" FontWeight="Bold" FontSize="14"/>
+                                            <TextBlock Text="{Binding ProjectDescription}" FontSize="12" TextWrapping="Wrap"/>
+                                            <TextBlock Text="{Binding StartDate, StringFormat=Start Date: \{0:yyyy-MM-dd\}}" FontSize="12"/>
+                                            <TextBlock Text="{Binding EndDate, StringFormat=End Date: \{0:yyyy-MM-dd\}}" FontSize="12"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+            </Grid>
+
+
+            <Border Name="Overlay" Background="#80000000" Visibility="Collapsed" CornerRadius="15" Grid.RowSpan="3" Grid.ColumnSpan="2">
+                <Grid />
+            </Border>
+        </Grid>
+    </Border>
+
+</Window>

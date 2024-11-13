@@ -87,10 +87,9 @@ namespace Build_BuildersIS.ViewModels
                 };
                 window.Hide();
                 message.ShowDialog();
-                window.Show();
-                //var bookWindow = new BookWindow(Username, userRole);
-                //bookWindow.Closed += (sender, e) => WindowClosed(window);
-                //bookWindow.Show();
+                var mainWindow = new MainWindow();
+                mainWindow.Closed += (sender, e) => WindowClosed(window);
+                mainWindow.Show();
             }
             else
             {

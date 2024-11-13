@@ -43,3 +43,5 @@ C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.csproj.G
 C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.csproj.CoreCompileInputs.cache
 C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.exe
 C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.pdb
+C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Views\MainWindow.g.cs
+C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Views\MainWindow.baml
