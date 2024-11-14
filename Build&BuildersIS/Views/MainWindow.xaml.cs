@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Build_BuildersIS.Models;
+using Build_BuildersIS.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,15 +21,25 @@ namespace Build_BuildersIS
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(string username, string userRole)
         {
             InitializeComponent();
+            DataContext = new MainViewModel(username, userRole);
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            var viewModel = DataContext as MainViewModel;
+            if (viewModel != null)
+            {
+                UsernameLabel.Content = viewModel.Username;
+                UserRoleLabel.Content = RoleDescription.GetRoleDescription(viewModel.UserRole);
+            }
         }
     }
 }
