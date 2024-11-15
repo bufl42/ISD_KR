@@ -1,5 +1,6 @@
 ﻿using Build_BuildersIS.DataBase;
 using Build_BuildersIS.Models;
+using Build_BuildersIS.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -25,7 +26,7 @@ namespace Build_BuildersIS.ViewModels
         public ObservableCollection<MaterialRequest> Requests { get; set; } = new ObservableCollection<MaterialRequest>();
         public ObservableCollection<MenuItem> MenuItems { get; set; } = new ObservableCollection<MenuItem>();
 
-        public ICommand AddMaterialCommand => new RelayCommand(param => AddMaterial());
+        public ICommand AddMaterialCommand => new RelayCommand(param => AddMaterial(param as Window));
 
         public string Username
         {
@@ -129,26 +130,29 @@ namespace Build_BuildersIS.ViewModels
             string query = @"
                 SELECT R.request_id, R.request_date, 
                 O.object_id, O.location AS ObjectAddress, O.imagedata AS ObjectImage,
-                M.name AS MaterialName, M.quantity AS MaterialQuantity, M.unit AS MaterialUnit
+                M.material_id, M.name AS MaterialName, M.quantity AS MaterialQuantity, M.unit AS MaterialUnit
                 FROM Request R
-                JOIN Object O ON R.object_id = O.object_id
                 JOIN RequestMaterial RM ON R.request_id = RM.request_id
-                JOIN Material M ON RM.material_id = M.material_id";
+                JOIN Material M ON RM.material_id = M.material_id
+                JOIN Object O ON R.object_id = O.object_id
+                ORDER BY R.request_id, M.material_id;";
 
             DataTable requestData = DatabaseHelper.ExecuteQuery(query);
 
             Requests.Clear();
             foreach (DataRow row in requestData.Rows)
             {
+                int requestId = Convert.ToInt32(row["request_id"]);
+
                 // Проверяем, существует ли запрос с таким ID в списке, чтобы не дублировать его
-                var existingRequest = Requests.FirstOrDefault(r => r.RequestID == Convert.ToInt32(row["request_id"]));
+                var existingRequest = Requests.FirstOrDefault(r => r.RequestID == requestId);
 
                 if (existingRequest == null)
                 {
                     // Создаём новый объект запроса, если он не был добавлен ранее
                     var request = new MaterialRequest
                     {
-                        RequestID = Convert.ToInt32(row["request_id"]),
+                        RequestID = requestId,
                         ObjectID = Convert.ToInt32(row["object_id"]),
                         ObjectAddress = row["ObjectAddress"].ToString(),
                         RequestDate = Convert.ToDateTime(row["request_date"]),
@@ -178,6 +182,7 @@ namespace Build_BuildersIS.ViewModels
                 }
             }
         }
+
         private void LoadMenuItems()
         {
             MenuItems.Clear();
@@ -210,10 +215,31 @@ namespace Build_BuildersIS.ViewModels
             }
         }
 
-        private void AddMaterial()
+        private void AddMaterial(Window window)
         {
-            // Логика для добавления нового материала в БД
-            // Откройте окно для ввода данных о материале и сохраните его в базе данных
+            try
+            {
+                var overlay = window.FindName("Overlay") as UIElement;
+                if (overlay != null)
+                {
+                    overlay.Visibility = Visibility.Visible;
+                }
+
+                var materialWindow = new MaterialWindow()
+                {
+                    Owner = window,
+                    WindowStartupLocation = WindowStartupLocation.Manual
+                };
+                materialWindow.Left = window.Left + (window.Width - materialWindow.Width) / 2;
+                materialWindow.Top = window.Top + (window.Height - materialWindow.Height) / 2;
+
+                materialWindow.Closed += (sender, e) => WindowClosed(window);
+                materialWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

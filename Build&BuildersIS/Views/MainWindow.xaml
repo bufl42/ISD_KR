@@ -88,38 +88,31 @@
                     </ListBox>
                 </Border>
 
-                <Border  x:Name="RequestsListBox" Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,10,2,-19" Visibility="Visible">
+                <Border x:Name="RequestsListBox" Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19" Visibility="Visible">
                     <ListBox ItemsSource="{Binding Requests}" 
-                            HorizontalAlignment="Stretch" 
-                            VerticalAlignment="Stretch" Background="Transparent" BorderBrush="Transparent">
+                             HorizontalAlignment="Stretch" 
+                             VerticalAlignment="Stretch" 
+                             Background="Transparent" 
+                             BorderBrush="Transparent"
+                             Margin="0">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
-                                <StackPanel Margin="5" Background="LightGray">
-                                    <StackPanel Orientation="Horizontal">
-                                        <Image Source="{Binding ObjectImage, Converter={StaticResource ByteArrayToImageConverter}}" Width="50" Height="50" Margin="5"/>
-                                        <StackPanel>
-                                            <TextBlock Text="ID объекта:" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding ObjectID}"/>
-                                            <TextBlock Text="Дата запроса:" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding RequestDate, StringFormat=d}"/>
-                                            <TextBlock Text="Адрес:" FontWeight="Bold"/>
-                                            <TextBlock Text="{Binding ObjectAddress}"/>
+                                <Border BorderBrush="Transparent" BorderThickness="1" Padding="8" CornerRadius="15" Width="606" Height="Auto" Margin="5">
+                                    <Grid Margin="-9,-9,-9,-9">
+                                        <Image Source="{Binding ObjectImage, Converter={StaticResource ByteArrayToImageConverter}}" Margin="0,0,507,0" Width="85" Stretch="UniformToFill"/>
+                                        <StackPanel Orientation="Vertical" Width="499" HorizontalAlignment="Left" Margin="107,0,0,0">
+                                            <TextBlock Text="{Binding RequestID, StringFormat=Номер запроса: {0}}" FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding RequestDate, StringFormat='Дата запроса: {0:dd-MM-yyyy}'}"/>
+                                            <TextBlock Text="{Binding ObjectID, StringFormat=ID объекта: {0}}"/>
+                                            <TextBlock Text="Запрашиваемые материалы:" FontWeight="Bold" Margin="0,2,0,0"/>
+                                            <TextBlock Text="{Binding MaterialsSummary}" 
+                                               TextTrimming="CharacterEllipsis" 
+                                               Margin="0,0,0,0" 
+                                               MaxHeight="20" 
+                                               TextWrapping="NoWrap"/>
                                         </StackPanel>
-                                    </StackPanel>
-
-                                    <TextBlock Text="Запрашиваемые материалы:" FontWeight="Bold" Margin="5,10,0,0"/>
-                                    <ItemsControl ItemsSource="{Binding Materials}">
-                                        <ItemsControl.ItemTemplate>
-                                            <DataTemplate>
-                                                <StackPanel Orientation="Horizontal" Margin="5,0">
-                                                    <TextBlock Text="{Binding Name}" Margin="0,0,5,0"/>
-                                                    <TextBlock Text="{Binding Quantity}" Margin="0,0,5,0"/>
-                                                    <TextBlock Text="{Binding Unit}"/>
-                                                </StackPanel>
-                                            </DataTemplate>
-                                        </ItemsControl.ItemTemplate>
-                                    </ItemsControl>
-                                </StackPanel>
+                                    </Grid>
+                                </Border>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
@@ -147,7 +140,8 @@
                     </ListBox.ItemContainerStyle>
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <Button Content="{Binding Title}" Command="{Binding Command}" Style="{StaticResource FlatYellowButtonStyle}" Height="45" Width="175" HorizontalAlignment="Center" FontFamily="Impact" FontSize="18" FontWeight="Normal" Margin="5"/>
+                            <Button Content="{Binding Title}" Command="{Binding Command}" Style="{StaticResource FlatYellowButtonStyle}" Height="45" Width="175" HorizontalAlignment="Center" FontFamily="Impact" FontSize="18" FontWeight="Normal" Margin="5"
+                                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
