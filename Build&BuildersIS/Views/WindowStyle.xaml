@@ -4,25 +4,6 @@
                     xmlns:local="clr-namespace:Build_BuildersIS"
                     xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels">
 
-    <Style x:Key="RoundedWindowStyle" TargetType="Window">
-        <Setter Property="AllowsTransparency" Value="True"/>
-        <Setter Property="WindowStyle" Value="None"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Window">
-                    <Grid Background="Transparent">
-                        <Border CornerRadius="12" Background="White" BorderBrush="Gray" BorderThickness="1">
-                            <AdornerDecorator>
-                                <ContentPresenter />
-                            </AdornerDecorator>
-                        </Border>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <!-- Стиль для кнопок с анимацией нажатия -->
     <Style x:Key="FlatYellowButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="#FFFFCA0E"/>
@@ -70,44 +51,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style TargetType="Button"  x:Key="FlatYellowButtonStyle2">
-        <Setter Property="Background" Value="#FFFFCA0E"/>
-        <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Cursor" Value="Hand"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" 
-                     BorderBrush="{TemplateBinding BorderBrush}" 
-                     BorderThickness="{TemplateBinding BorderThickness}"
-                     CornerRadius="10">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FFEFA400"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#FFBDBDBD"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding IsToggled}" Value="False">
-                <Setter Property="Content" Value="+" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding IsToggled}" Value="True">
-                <Setter Property="Content" Value="-" />
-            </DataTrigger>
-        </Style.Triggers>
-    </Style>
-
     <!-- Стиль для кнопки закрытия окна -->
     <Style x:Key="CloseButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
@@ -126,34 +69,6 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="#FF0000"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style x:Key="NinjaButtonStyle" TargetType="Button">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Border Background="{TemplateBinding Background}" 
-             BorderBrush="{TemplateBinding BorderBrush}" 
-             BorderThickness="{TemplateBinding BorderThickness}"
-             CornerRadius="12">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="Transparent"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="Transparent"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -187,70 +102,41 @@
     </Style>
 
 
-    <Style TargetType="DataGrid" x:Key="DataGridStyle">
-        <Setter Property="BorderBrush" Value="#DDDDDD" />
-        <Setter Property="HorizontalGridLinesBrush" Value="#DDDDDD" />
-        <Setter Property="VerticalGridLinesBrush" Value="#DDDDDD" />
-        <Setter Property="CanUserAddRows" Value="False" />
-        <Setter Property="CanUserReorderColumns" Value="False" />
-        <Setter Property="CanUserResizeColumns" Value="False" />
-        <Setter Property="CanUserSortColumns" Value="False" />
-        <Setter Property="SelectionMode" Value="Single"/>
-        <Setter Property="SelectionUnit" Value="FullRow"/>
+   
 
-        <Setter Property="RowStyle">
+    <Style x:Key="NoSelectTextBoxStyle" TargetType="TextBox">
+        <!-- Основные настройки внешнего вида TextBox -->
+        <Setter Property="BorderBrush" Value="Gray"/>
+        <!-- Цвет рамки по умолчанию -->
+        <Setter Property="BorderThickness" Value="1"/>
+
+        <!-- Цвет выделения текста по умолчанию -->
+        <Setter Property="SelectionBrush" Value="#FFEE94"/>
+        <Setter Property="Foreground" Value="#FFB8B8B8"/>
+
+        <Setter Property="Template">
             <Setter.Value>
-                <Style TargetType="DataGridRow">
-                    <Style.Triggers>
+                <ControlTemplate TargetType="TextBox">
+                    <Border 
+                        x:Name="border" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        Background="{TemplateBinding Background}">
+                        <ScrollViewer x:Name="PART_ContentHost" Padding="{TemplateBinding Padding}"/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#FFF4BD" />
+                            <Setter TargetName="border" Property="BorderBrush" Value="#FFFBDA63"/>
                         </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="CellStyle">
-            <Setter.Value>
-                <Style TargetType="DataGridCell">
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#FFEE94" />
-                            <Setter Property="BorderBrush" Value="Transparent" />
-                            <Setter Property="Foreground" Value="Black" />
+
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="#FFFFC700"/>
                         </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter Property="Background" Value="#FFEE94" />
-                            <Setter Property="BorderBrush" Value="Black" />
-                            <Setter Property="BorderThickness" Value="0"/>
-                            <Setter Property="Foreground" Value="Black" />
-                        </Trigger>
-                    </Style.Triggers>
-                    <Setter Property="Padding" Value="4,3,4,3" />
-                    <Setter Property="BorderBrush" Value="Transparent"/>
-                    <Setter Property="BorderThickness" Value="0"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="DataGridCell">
-                                <Border Padding="{TemplateBinding Padding}" 
-                                            BorderBrush="{TemplateBinding BorderBrush}"
-                                            BorderThickness="{TemplateBinding BorderThickness}"
-                                            Background="{TemplateBinding Background}">
-                                    <ContentPresenter />
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Setter Property="FocusVisualStyle">
-                        <Setter.Value>
-                            <Style TargetType="Control">
-                                <Setter Property="BorderBrush" Value="Transparent" />
-                            </Style>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-
 
 </ResourceDictionary>

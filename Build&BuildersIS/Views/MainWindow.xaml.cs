@@ -25,6 +25,33 @@ namespace Build_BuildersIS
         {
             InitializeComponent();
             DataContext = new MainViewModel(username, userRole);
+            string imagePath;
+            switch (userRole)
+            {
+                case "ADM":
+                    imagePath = "pack://application:,,,/Resources/account-star.png";
+                    break;
+                case "WHW":
+                    imagePath = "pack://application:,,,/Resources/warehouse-worker.png";
+                    ProjectsListBox.Visibility = Visibility.Collapsed;
+                    TasksListBox.Visibility = Visibility.Collapsed;
+                    RequestsListBox.Visibility = Visibility.Visible;
+                    break;
+                case "MNG":
+                    imagePath = "pack://application:,,,/Resources/account-tie.png";
+                    ProjectsListBox.Visibility = Visibility.Visible;
+                    TasksListBox.Visibility = Visibility.Collapsed;
+                    RequestsListBox.Visibility= Visibility.Collapsed;
+                    break;
+                default:
+                    imagePath = "pack://application:,,,/Resources/worker.png";
+                    ProjectsListBox.Visibility = Visibility.Collapsed;
+                    TasksListBox.Visibility = Visibility.Visible;
+                    RequestsListBox.Visibility = Visibility.Collapsed;
+                    break;
+            }
+            BitmapImage bitmap = new BitmapImage(new Uri(imagePath));
+            UserImage.Source = bitmap;
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

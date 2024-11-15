@@ -14,10 +14,12 @@ namespace Build_BuildersIS.Models
             {
                 case "ADM":
                     return "Администратор";
-                case "LIB":
-                    return "Библиотекарь";
-                case "USR":
-                    return "Пользователь";
+                case "WRK":
+                    return "Рабочий";
+                case "MNG":
+                    return "Менеджер";
+                case "WHW":
+                    return "Кладовщик";
                 default:
                     return "Неизвестная роль";
             }

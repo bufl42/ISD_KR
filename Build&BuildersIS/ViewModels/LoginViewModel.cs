@@ -65,35 +65,42 @@ namespace Build_BuildersIS.ViewModels
 
         private void Login(Window window)
         {
-            if (string.IsNullOrEmpty(Username))
+            try
             {
-                ShowErrorMessage(window, "Имя пользователя не может быть пустым.", false);
-                return;
-            }
-
-            if (string.IsNullOrEmpty(Password))
-            {
-                ShowErrorMessage(window, "Пароль не может быть пустым.", false);
-                return;
-            }
-
-            string passwordHash = HashFunc.ComputeSha256Hash(Password);
-            if (Authentication.AuthenticateUserByName(Username, passwordHash, out string userRole))
-            {
-                var message = new MessageBoxWindow("Успешная авторизация!", true)
+                if (string.IsNullOrEmpty(Username))
                 {
-                    Owner = window,
-                    WindowStartupLocation = WindowStartupLocation.CenterOwner
-                };
-                window.Hide();
-                message.ShowDialog();
-                var mainWindow = new MainWindow(Username, userRole);
-                mainWindow.Closed += (sender, e) => WindowClosed(window);
-                mainWindow.Show();
+                    ShowErrorMessage(window, "Имя пользователя не может быть пустым.", false);
+                    return;
+                }
+
+                if (string.IsNullOrEmpty(Password))
+                {
+                    ShowErrorMessage(window, "Пароль не может быть пустым.", false);
+                    return;
+                }
+
+                string passwordHash = HashFunc.ComputeSha256Hash(Password);
+                if (Authentication.AuthenticateUserByName(Username, passwordHash, out string userRole))
+                {
+                    var message = new MessageBoxWindow("Успешная авторизация!", true)
+                    {
+                        Owner = window,
+                        WindowStartupLocation = WindowStartupLocation.CenterOwner
+                    };
+                    window.Hide();
+                    message.ShowDialog();
+                    var mainWindow = new MainWindow(Username, userRole);
+                    mainWindow.Closed += (sender, e) => WindowClosed(window);
+                    mainWindow.Show();
+                }
+                else
+                {
+                    ShowErrorMessage(window, "Неверное имя пользователя или пароль.", false);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                ShowErrorMessage(window, "Неверное имя пользователя или пароль.", false);
+                MessageBox.Show($"Произошла ошибка: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

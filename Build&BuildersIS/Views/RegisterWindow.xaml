@@ -39,20 +39,20 @@
             <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="262" Grid.Row="2" Width="200">
                 <!-- Имя пользователя -->
                 <Label Content="Username:" FontSize="14" Foreground="#FFB8B8B8" FontFamily="Segoe UI Black"/>
-                <TextBox x:Name="UsernameTextBox" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="200" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
+                <TextBox x:Name="UsernameTextBox" Style="{StaticResource NoSelectTextBoxStyle}" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Width="200" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
                 
 
                 <!-- Почта -->
                 <Label Content="Email:" FontSize="14" Foreground="#FFB8B8B8" FontFamily="Segoe UI Black"/>
-                <TextBox x:Name="EmailTextBox" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Width="200" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
+                <TextBox x:Name="EmailTextBox" Style="{StaticResource NoSelectTextBoxStyle}" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}" Width="200" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
 
                 <!-- Пароль -->
                 <Label Content="Password:" FontSize="14" Foreground="#FFB8B8B8" FontFamily="Segoe UI Black"/>
-                <TextBox x:Name="PasswordBox" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Width="200" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
+                <TextBox x:Name="PasswordBox" Style="{StaticResource NoSelectTextBoxStyle}" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Width="200" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
                 <Label Content="Confirm Password:" FontSize="14" Foreground="#FFB8B8B8" FontFamily="Segoe UI Black"/>
 
                 <!-- Подтверждение пароля -->
-                <TextBox x:Name="ConfirmPasswordBox" Text="{Binding ConfirmPassword, UpdateSourceTrigger=PropertyChanged}" Width="200" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
+                <TextBox x:Name="ConfirmPasswordBox" Style="{StaticResource NoSelectTextBoxStyle}" Text="{Binding ConfirmPassword, UpdateSourceTrigger=PropertyChanged}" Width="200" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
 
                 <!-- Кнопка регистрации -->
                 <Button Content="REGISTER" Width="100" Margin="20,20,20,0" Command="{Binding RegisterCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" FontSize="14" Style="{StaticResource FlatYellowButtonStyle}" Height ="30" FontFamily="Segoe UI Black" FontWeight="Bold"/>

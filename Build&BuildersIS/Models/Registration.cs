@@ -43,7 +43,7 @@ namespace Build_BuildersIS.Models
             {
                 { "@Username", username },
                 { "@PasswordHash", passwordHash },
-                { "@UserRole", "USR" },
+                { "@UserRole", "WRK" },
                 { "@Email", email }
             };
 

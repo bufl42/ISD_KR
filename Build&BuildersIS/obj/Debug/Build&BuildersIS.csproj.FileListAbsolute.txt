@@ -47,3 +47,4 @@ C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Views\M
 C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Views\MainWindow.baml
 C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\MainWindow.g.cs
 C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\MainWindow.baml
+C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS_Content.g.cs

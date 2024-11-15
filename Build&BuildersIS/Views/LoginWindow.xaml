@@ -31,9 +31,9 @@
                 </Button.Background>
             </Button>
             <Label Content="Username or e-mail:" Margin="59,86,60,117" Grid.Row="1" RenderTransformOrigin="0.5,0.5" FontSize="14" Foreground="#FFB8B8B8" FontFamily="Segoe UI Black"/>
-            <TextBox x:Name="UsernameTextBox" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="58,115,60,97" Grid.Row="1" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
+            <TextBox x:Name="UsernameTextBox" Style="{StaticResource NoSelectTextBoxStyle}" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" Margin="58,115,60,97" Grid.Row="1" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8"/>
             <Label Content="Password:" Margin="59,145,149,58" Grid.Row="1" RenderTransformOrigin="0.338,2.56" FontSize="14" Foreground="#FFB8B8B8" FontFamily="Segoe UI Black"/>
-            <TextBox x:Name="PasswordBox" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="58,175,60,37" Grid.Row="1" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8" Foreground="#FFB8B8B8"/>
+            <TextBox x:Name="PasswordBox" Style="{StaticResource NoSelectTextBoxStyle}" Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}" Margin="58,175,60,37" Grid.Row="1" FontSize="14" Background="Transparent" BorderBrush="#FFB8B8B8"/>
             <Button Content="LOGIN"  Command="{Binding LoginCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="58,23,161,22" RenderTransformOrigin="0.15,0.118" Style="{StaticResource FlatYellowButtonStyle}" Grid.Row="2" FontSize="14" FontFamily="Segoe UI Black" FontWeight="Bold" />
             <Button Content="REGISTER" Command="{Binding RegisterCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Margin="159,23,60,22" Style="{StaticResource FlatYellowButtonStyle}" Grid.Row="2" FontSize="14" FontWeight="Bold" FontFamily="Segoe UI Black"/>
             <Label Content="I" Margin="158,33,112,174" FontSize="60" RenderTransformOrigin="0.537,0.517" FontFamily="Arial" Grid.RowSpan="2" Foreground="#FFFFCA0E" FontWeight="Bold"/>

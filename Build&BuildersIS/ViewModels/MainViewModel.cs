@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 namespace Build_BuildersIS.ViewModels
@@ -21,6 +22,10 @@ namespace Build_BuildersIS.ViewModels
 
         public ObservableCollection<Project> Projects { get; set; }
         public ObservableCollection<WorkerTask> WorkerTasks { get; set; }
+        public ObservableCollection<MaterialRequest> Requests { get; set; } = new ObservableCollection<MaterialRequest>();
+        public ObservableCollection<MenuItem> MenuItems { get; set; } = new ObservableCollection<MenuItem>();
+
+        public ICommand AddMaterialCommand => new RelayCommand(param => AddMaterial());
 
         public string Username
         {
@@ -55,6 +60,8 @@ namespace Build_BuildersIS.ViewModels
             UserRole = userRole;
             LoadProjects();
             LoadWorkerTasks();
+            LoadRequests();
+            LoadMenuItems();
         }
 
 
@@ -117,19 +124,96 @@ namespace Build_BuildersIS.ViewModels
 
         }
 
-        public BitmapImage ConvertToImageSource(byte[] imageData)
+        private void LoadRequests()
         {
-            if (imageData == null) return null;
+            string query = @"
+                SELECT R.request_id, R.request_date, 
+                O.object_id, O.location AS ObjectAddress, O.imagedata AS ObjectImage,
+                M.name AS MaterialName, M.quantity AS MaterialQuantity, M.unit AS MaterialUnit
+                FROM Request R
+                JOIN Object O ON R.object_id = O.object_id
+                JOIN RequestMaterial RM ON R.request_id = RM.request_id
+                JOIN Material M ON RM.material_id = M.material_id";
 
-            using (MemoryStream ms = new MemoryStream(imageData))
+            DataTable requestData = DatabaseHelper.ExecuteQuery(query);
+
+            Requests.Clear();
+            foreach (DataRow row in requestData.Rows)
             {
-                BitmapImage image = new BitmapImage();
-                image.BeginInit();
-                image.StreamSource = ms;
-                image.CacheOption = BitmapCacheOption.OnLoad;
-                image.EndInit();
-                return image;
+                // Проверяем, существует ли запрос с таким ID в списке, чтобы не дублировать его
+                var existingRequest = Requests.FirstOrDefault(r => r.RequestID == Convert.ToInt32(row["request_id"]));
+
+                if (existingRequest == null)
+                {
+                    // Создаём новый объект запроса, если он не был добавлен ранее
+                    var request = new MaterialRequest
+                    {
+                        RequestID = Convert.ToInt32(row["request_id"]),
+                        ObjectID = Convert.ToInt32(row["object_id"]),
+                        ObjectAddress = row["ObjectAddress"].ToString(),
+                        RequestDate = Convert.ToDateTime(row["request_date"]),
+                        ObjectImage = row["ObjectImage"] as byte[],
+                        Materials = new List<MaterialItem>()
+                    };
+
+                    // Добавляем материал к новому запросу
+                    request.Materials.Add(new MaterialItem
+                    {
+                        Name = row["MaterialName"].ToString(),
+                        Quantity = Convert.ToDouble(row["MaterialQuantity"]),
+                        Unit = row["MaterialUnit"].ToString()
+                    });
+
+                    Requests.Add(request);
+                }
+                else
+                {
+                    // Если запрос уже существует, добавляем только материал
+                    existingRequest.Materials.Add(new MaterialItem
+                    {
+                        Name = row["MaterialName"].ToString(),
+                        Quantity = Convert.ToDouble(row["MaterialQuantity"]),
+                        Unit = row["MaterialUnit"].ToString()
+                    });
+                }
             }
+        }
+        private void LoadMenuItems()
+        {
+            MenuItems.Clear();
+
+            switch (UserRole)
+            {
+                case "WHW":
+                    MenuItems.Add(new MenuItem { Title = "Каталог", Command = AddMaterialCommand });
+                    MenuItems.Add(new MenuItem { Title = "Новый материал", Command = AddMaterialCommand });
+                    MenuItems.Add(new MenuItem { Title = "Закрыть запрос", Command = AddMaterialCommand });
+                    // Добавьте другие кнопки для Кладовщика при необходимости
+                    break;
+
+                //case "Менеджер":
+                //    MenuItems.Add(new MenuItem { Title = "Создать новый проект", Command = CreateProjectCommand });
+                //    MenuItems.Add(new MenuItem { Title = "Запрос на материалы", Command = RequestMaterialsCommand });
+                //    // Добавьте другие кнопки для Менеджера при необходимости
+                //    break;
+
+                //case "Рабочий":
+                //    MenuItems.Add(new MenuItem { Title = "Просмотр задач", Command = ViewTasksCommand });
+                //    // Добавьте другие кнопки для Рабочего при необходимости
+                //    break;
+
+                //case "Администратор":
+                //    MenuItems.Add(new MenuItem { Title = "Управление пользователями", Command = ManageUsersCommand });
+                //    MenuItems.Add(new MenuItem { Title = "Просмотр всех проектов", Command = ViewAllProjectsCommand });
+                //    // Добавьте другие кнопки для Администратора при необходимости
+                //    break;
+            }
+        }
+
+        private void AddMaterial()
+        {
+            // Логика для добавления нового материала в БД
+            // Откройте окно для ввода данных о материале и сохраните его в базе данных
         }
     }
 }
