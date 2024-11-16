@@ -62,8 +62,12 @@
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\WorkerTask.cs" />
+    <Compile Include="ViewModels\CatalogViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\MaterialViewModel.cs" />
+    <Compile Include="Views\CatalogWindow.xaml.cs">
+      <DependentUpon>CatalogWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -76,6 +80,10 @@
     <Compile Include="Views\RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\CatalogWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LoginWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Build_BuildersIS.Views"
         xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels"
         mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent"  WindowStartupLocation="CenterScreen"
-        Title="MaterialWindow" Height="450" Width="745">
+        Title="MaterialWindow" Height="293" Width="456">
     <Window.DataContext>
         <vm:MaterialViewModel/>
     </Window.DataContext>
@@ -17,20 +17,21 @@
                 <RowDefinition Height="35"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="708,10,10,0" >
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="419,10,10,0" >
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
+            <Label Content="Добавление нового материала" Margin="10,5,136,0" FontSize="15" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8"/>
 
-            <Grid Margin="0,10,0,0" Grid.Row="1">
-                <Label Content="Название" Margin="24,10,194,365"/>
-                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="514" Margin="24,38,205,320"  />
-                <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Width="514" Margin="24,128,205,235"  />
-                <TextBox Text="{Binding Unit, UpdateSourceTrigger=PropertyChanged}" Margin="24,209,205,159"  />
+            <Grid Margin="0,5,0,5" Grid.Row="1">
+                <Label Content="Название" Margin="45,40,324,176" Foreground="#FFB8B8B8" FontSize="17"/>
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="135,40,45,175" Height="30"  Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="22"/>
+                <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Margin="295,85,45,130" Height="30" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="22"/>
+                <TextBox Text="{Binding Unit, UpdateSourceTrigger=PropertyChanged}" Margin="358,130,45,81" Height="30" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="22"/>
 
                 <!-- Поле для изображения с поддержкой Drag and Drop -->
-                <Border BorderBrush="Gray" BorderThickness="1" Margin="25,252,463,85" 
+                <Border BorderBrush="Gray" BorderThickness="1" Margin="42,85,285,43" 
                         AllowDrop="True" Drop="ImageDrop" PreviewDragOver="ImagePreviewDragOver" RenderTransformOrigin="0.5,0.5">
                     <Border.RenderTransform>
                         <TransformGroup>
@@ -40,13 +41,24 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Border.RenderTransform>
-                    <TextBlock Text="Перетащите изображение сюда" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Text="   Перетащите" Foreground="#FFB8B8B8" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center" Height="116" Width="126" RenderTransformOrigin="0.5,0.5" >
+                        <TextBlock.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform AngleX="0.607"/>
+                                <RotateTransform/>
+                                <TranslateTransform X="0.562"/>
+                            </TransformGroup>
+                        </TextBlock.RenderTransform>
+                    </TextBlock>
                 </Border>
 
-                <Button Content="Добавить материал" Command="{Binding AddMaterialCommand}" Margin="24,334,489,34" />
-                <Label Content="Количество" Margin="24,88,205,280"/>
+                <TextBlock Text=" изображение" Foreground="#FFB8B8B8" FontSize="17" Margin="51,132,292,90"/>
+                <TextBlock Text="сюда" Foreground="#FFB8B8B8" FontSize="17" Margin="84,173,326,49"/>
+                <Label Content="Количество" Margin="181,86,171,130" Foreground="#FFB8B8B8" FontSize="17"/>
+                <Label Content="Единицы измерения " Margin="181,132,101,84" Foreground="#FFB8B8B8" FontSize="17"/>
             </Grid>
-            <Label Content="Единицы измерения" Margin="25,189,204,190" Grid.Row="1"/>
+            <Button Content="Добавить материал" Command="{Binding AddMaterialCommand}" Margin="183,175,43,47" Height="30" FontSize="19" Style="{StaticResource FlatYellowButtonStyle}" Background="#FFFFCA0E" FontFamily="Impact" Grid.Row="1"/>
         </Grid>
     </Border>
 

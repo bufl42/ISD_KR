@@ -1,0 +1,38 @@
+﻿<Window x:Class="Build_BuildersIS.Views.CatalogWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Build_BuildersIS.Views"
+        xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels"
+        mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent"  WindowStartupLocation="CenterScreen"
+        Title="CatalogWindow" Height="450" Width="745">
+    
+    <Window.DataContext>
+        <vm:CatalogViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#FF484848" CornerRadius="15" BorderBrush="Black" BorderThickness="1" Margin="0,0,0,0" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="708,10,10,0" >
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+
+            <Grid Margin="0,10,0,0" Grid.Row="1">
+                <Label Content="Название" Margin="24,10,194,365"/>
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Width="514" Margin="24,38,205,320"  />
+                <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Width="514" Margin="24,128,205,235"  />
+                <TextBox Text="{Binding Unit, UpdateSourceTrigger=PropertyChanged}" Margin="24,209,205,159"  />
+                <Label Content="Количество" Margin="24,88,205,280"/>
+            </Grid>
+            <Label Content="Единицы измерения" Margin="25,189,204,190" Grid.Row="1"/>
+        </Grid>
+    </Border>
+
+</Window>
