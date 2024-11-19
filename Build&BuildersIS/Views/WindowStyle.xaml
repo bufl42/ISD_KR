@@ -51,6 +51,39 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="CustomListBoxItemStyle" TargetType="ListBoxItem">
+        <!-- Основные настройки внешнего вида ListBoxItem -->
+        <Setter Property="Padding" Value="5"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Border x:Name="Border" 
+                                BorderBrush="Transparent" 
+                                BorderThickness="1" 
+                                Background="{TemplateBinding Background}">
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <!-- При наведении на элемент (с полупрозрачным фоном) -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#80FBDA63"/>
+                        </Trigger>
+
+                        <!-- При клике на элемент (с полупрозрачным фоном) -->
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="Border" Property="Background" Value="#B4FBCA1D"/>
+                            <!-- Полупрозрачный желтый -->
+                            <Setter TargetName="Border" Property="BorderBrush" Value="#FFFFC700"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!-- Стиль для кнопки закрытия окна -->
     <Style x:Key="CloseButtonStyle" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>

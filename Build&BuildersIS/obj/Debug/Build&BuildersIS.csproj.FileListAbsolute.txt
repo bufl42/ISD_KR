@@ -55,3 +55,5 @@ C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS_Content.
 C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\MaterialWindow.baml
 C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\CatalogWindow.g.cs
 C:\Users\Den\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\CatalogWindow.baml
+C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Views\CatalogWindow.g.cs
+C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\Views\CatalogWindow.baml

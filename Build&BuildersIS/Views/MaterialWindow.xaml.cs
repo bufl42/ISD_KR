@@ -1,6 +1,7 @@
 ﻿using Build_BuildersIS.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,13 +27,6 @@ namespace Build_BuildersIS.Views
         }
 
         // Обработка события PreviewDragOver для изменения курсора
-        private void ImagePreviewDragOver(object sender, DragEventArgs e)
-        {
-            e.Effects = DragDropEffects.Copy;
-            e.Handled = true;
-        }
-
-        // Обработка события Drop для загрузки изображения
         private void ImageDrop(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop))
@@ -41,10 +35,31 @@ namespace Build_BuildersIS.Views
                 if (files.Length > 0)
                 {
                     string filePath = files[0];
-                    var viewModel = DataContext as MaterialViewModel;
-                    viewModel?.HandleImageDrop(filePath);
+
+                    try
+                    {
+                        // Чтение изображения как байтового массива
+                        byte[] imageBytes = File.ReadAllBytes(filePath);
+
+                        // Устанавливаем изображение в привязанное свойство ViewModel
+                        if (DataContext is MaterialViewModel viewModel)
+                        {
+                            viewModel.ImageData = imageBytes;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Не удалось загрузить изображение: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
             }
+        }
+
+        private void ImagePreviewDragOver(object sender, DragEventArgs e)
+        {
+            // Разрешаем Drag and Drop только для файлов
+            e.Handled = true;
+            e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         }
     }
 }

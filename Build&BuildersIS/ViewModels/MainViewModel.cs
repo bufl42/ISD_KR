@@ -26,7 +26,7 @@ namespace Build_BuildersIS.ViewModels
         public ObservableCollection<MaterialRequest> Requests { get; set; } = new ObservableCollection<MaterialRequest>();
         public ObservableCollection<MenuItem> MenuItems { get; set; } = new ObservableCollection<MenuItem>();
 
-        public ICommand AddMaterialCommand => new RelayCommand(param => AddMaterial(param as Window));
+        public ICommand OpenCatalogCommand => new RelayCommand(param => OpenCatalog(param as Window));
 
         public string Username
         {
@@ -190,9 +190,9 @@ namespace Build_BuildersIS.ViewModels
             switch (UserRole)
             {
                 case "WHW":
-                    MenuItems.Add(new MenuItem { Title = "Каталог", Command = AddMaterialCommand });
-                    MenuItems.Add(new MenuItem { Title = "Новый материал", Command = AddMaterialCommand });
-                    MenuItems.Add(new MenuItem { Title = "Закрыть запрос", Command = AddMaterialCommand });
+                    MenuItems.Add(new MenuItem { Title = "Каталог", Command = OpenCatalogCommand });
+                    MenuItems.Add(new MenuItem { Title = "Утвердить запрос" });
+                    MenuItems.Add(new MenuItem { Title = "Отклонить запрос" });
                     // Добавьте другие кнопки для Кладовщика при необходимости
                     break;
 
@@ -213,9 +213,8 @@ namespace Build_BuildersIS.ViewModels
                 //    // Добавьте другие кнопки для Администратора при необходимости
                 //    break;
             }
-        }
-
-        private void AddMaterial(Window window)
+        }       
+        private void OpenCatalog(Window window)
         {
             try
             {
@@ -225,21 +224,22 @@ namespace Build_BuildersIS.ViewModels
                     overlay.Visibility = Visibility.Visible;
                 }
 
-                var materialWindow = new MaterialWindow()
+                var catalogWindow = new CatalogWindow()
                 {
                     Owner = window,
                     WindowStartupLocation = WindowStartupLocation.Manual
                 };
-                materialWindow.Left = window.Left + (window.Width - materialWindow.Width) / 2;
-                materialWindow.Top = window.Top + (window.Height - materialWindow.Height) / 2;
+                catalogWindow.Left = window.Left + (window.Width - catalogWindow.Width) / 2;
+                catalogWindow.Top = window.Top + (window.Height - catalogWindow.Height) / 2;
 
-                materialWindow.Closed += (sender, e) => WindowClosed(window);
-                materialWindow.ShowDialog();
+                catalogWindow.Closed += (sender, e) => WindowClosed(window);
+                catalogWindow.ShowDialog();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

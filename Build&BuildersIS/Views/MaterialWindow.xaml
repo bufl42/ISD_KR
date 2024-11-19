@@ -4,12 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Build_BuildersIS.Views"
+       xmlns:ms="clr-namespace:Build_BuildersIS.Models"
+        
         xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels"
         mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent"  WindowStartupLocation="CenterScreen"
         Title="MaterialWindow" Height="293" Width="456">
     <Window.DataContext>
         <vm:MaterialViewModel/>
     </Window.DataContext>
+
+    <Window.Resources>
+        <ms:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
+    </Window.Resources>
 
     <Border Background="#FF484848" CornerRadius="15" BorderBrush="Black" BorderThickness="1" Margin="0,0,0,0" >
         <Grid>
@@ -24,7 +30,7 @@
             </Button>
             <Label Content="Добавление нового материала" Margin="10,5,136,0" FontSize="15" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8"/>
 
-            <Grid Margin="0,5,0,5" Grid.Row="1">
+            <Grid Margin="0,5,0,0" Grid.Row="1">
                 <Label Content="Название" Margin="45,40,324,176" Foreground="#FFB8B8B8" FontSize="17"/>
                 <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="135,40,45,175" Height="30"  Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="22"/>
                 <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Margin="295,85,45,130" Height="30" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="22"/>
@@ -41,20 +47,22 @@
                             <TranslateTransform/>
                         </TransformGroup>
                     </Border.RenderTransform>
-                    <TextBlock Text="   Перетащите" Foreground="#FFB8B8B8" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center" Height="116" Width="126" RenderTransformOrigin="0.5,0.5" >
-                        <TextBlock.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform AngleX="0.607"/>
-                                <RotateTransform/>
-                                <TranslateTransform X="0.562"/>
-                            </TransformGroup>
-                        </TextBlock.RenderTransform>
-                    </TextBlock>
+                    <Grid>
+                        <Image Source="{Binding ImagePreview, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill"/>
+                        <TextBlock Text="изображение" Foreground="#FFB8B8B8" FontSize="17" Margin="7,46,7,47"/>
+                        <TextBlock Text="сюда" Foreground="#FFB8B8B8" FontSize="17" Margin="41,88,42,1" RenderTransformOrigin="0.5,0.5" />
+                        <TextBlock Text="   Перетащите" Foreground="#FFB8B8B8" FontSize="17" VerticalAlignment="Center" HorizontalAlignment="Center" Height="123" Width="117" RenderTransformOrigin="0.5,0.5">
+                            <TextBlock.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform AngleX="0.607"/>
+                                    <RotateTransform/>
+                                    <TranslateTransform X="0.562"/>
+                                </TransformGroup>
+                            </TextBlock.RenderTransform>
+                        </TextBlock>
+                    </Grid>
                 </Border>
-
-                <TextBlock Text=" изображение" Foreground="#FFB8B8B8" FontSize="17" Margin="51,132,292,90"/>
-                <TextBlock Text="сюда" Foreground="#FFB8B8B8" FontSize="17" Margin="84,173,326,49"/>
                 <Label Content="Количество" Margin="181,86,171,130" Foreground="#FFB8B8B8" FontSize="17"/>
                 <Label Content="Единицы измерения " Margin="181,132,101,84" Foreground="#FFB8B8B8" FontSize="17"/>
             </Grid>

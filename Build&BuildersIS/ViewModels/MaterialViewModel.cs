@@ -55,8 +55,11 @@ namespace Build_BuildersIS.ViewModels
             {
                 _imageData = value;
                 OnPropertyChanged(nameof(ImageData));
+                OnPropertyChanged(nameof(ImagePreview));
             }
         }
+
+        public byte[] ImagePreview => ImageData;
 
         public ICommand AddMaterialCommand => new RelayCommand(param => AddMaterial(), CanAddMaterial);
 
