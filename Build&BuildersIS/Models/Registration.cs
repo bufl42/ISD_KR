@@ -18,7 +18,7 @@ namespace Build_BuildersIS.Models
                 { "@Username", username }
             };
 
-            int userCount = DatabaseHelper.ExecuteScalar(query, parameters);
+            int userCount = (int)DatabaseHelper.ExecuteScalar(query, parameters);
 
             return userCount == 0;
         }
@@ -31,7 +31,7 @@ namespace Build_BuildersIS.Models
                 { "@Email", email }
             };
 
-            int userCount = DatabaseHelper.ExecuteScalar(query, parameters);
+            int userCount = (int)DatabaseHelper.ExecuteScalar(query, parameters);
 
             return userCount == 0;
         }

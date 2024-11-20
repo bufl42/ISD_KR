@@ -28,13 +28,13 @@
                     <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform" />
                 </Button.Background>
             </Button>
-            <Label Content="Добавление нового материала" Margin="10,5,136,0" FontSize="15" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8"/>
+            <Label Content="Информация о материале" Margin="10,5,136,0" FontSize="15" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8" Name="TitleString"/>
 
             <Grid Margin="0,5,0,0" Grid.Row="1">
                 <Label Content="Название" Margin="45,40,324,176" Foreground="#FFB8B8B8" FontSize="17"/>
-                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="135,40,45,175" Height="30"  Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="22"/>
-                <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Margin="295,85,45,130" Height="30" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="22"/>
-                <TextBox Text="{Binding Unit, UpdateSourceTrigger=PropertyChanged}" Margin="358,130,45,81" Height="30" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="22"/>
+                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="135,44,45,181"  Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
+                <TextBox Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Margin="295,90,45,135" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
+                <TextBox Text="{Binding Unit, UpdateSourceTrigger=PropertyChanged}" Margin="358,138,45,89" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
 
                 <!-- Поле для изображения с поддержкой Drag and Drop -->
                 <Border BorderBrush="Gray" BorderThickness="1" Margin="42,85,285,43" 
@@ -66,7 +66,7 @@
                 <Label Content="Количество" Margin="181,86,171,130" Foreground="#FFB8B8B8" FontSize="17"/>
                 <Label Content="Единицы измерения " Margin="181,132,101,84" Foreground="#FFB8B8B8" FontSize="17"/>
             </Grid>
-            <Button Content="Добавить материал" Command="{Binding AddMaterialCommand}" Margin="183,175,43,47" Height="30" FontSize="19" Style="{StaticResource FlatYellowButtonStyle}" Background="#FFFFCA0E" FontFamily="Impact" Grid.Row="1"/>
+            <Button Name="ActionButton" Content="Сохранить материал" Command="{Binding AddMaterialCommand}" Margin="184,183,45,43" Height="30" FontSize="19" Style="{StaticResource FlatYellowButtonStyle}" Background="#FFFFCA0E" FontFamily="Impact" Grid.Row="1" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
         </Grid>
     </Border>
 

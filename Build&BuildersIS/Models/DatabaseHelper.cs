@@ -40,10 +40,8 @@ namespace Build_BuildersIS.DataBase
             return result;
         }
 
-        public static int ExecuteScalar(string query, Dictionary<string, object> parameters = null)
+        public static object ExecuteScalar(string query, Dictionary<string, object> parameters = null)
         {
-            int result = 0;
-
             using (SqlConnection connection = new SqlConnection(DatabaseConfig.ConnectionString))
             {
                 connection.Open();
@@ -57,11 +55,9 @@ namespace Build_BuildersIS.DataBase
                         }
                     }
 
-                    result = (int)command.ExecuteScalar();
+                    return command.ExecuteScalar();
                 }
             }
-
-            return result;
         }
 
         // Выполнить SQL-запрос без возврата результата (INSERT, UPDATE, DELETE)

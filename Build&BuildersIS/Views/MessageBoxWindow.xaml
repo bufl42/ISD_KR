@@ -9,7 +9,7 @@
         WindowStyle="None" AllowsTransparency="True" Background="Transparent" 
         WindowStartupLocation="CenterScreen" >
     <Border Background="#FF484848" CornerRadius="10" Height="150" BorderBrush="Black" BorderThickness="1" >
-        <Grid Margin="0,-1,0,0">
+        <Grid Margin="0,-1,0,-1">
             <TextBlock x:Name="MessageText" TextWrapping="Wrap" Margin="111,44,17,40" FontSize="16" TextAlignment="Center" Foreground="#FFB8B8B8" />
             <Button x:Name="OkButton" Content="OK" Margin="258,109,10,10" Style="{StaticResource FlatYellowButtonStyle}" RenderTransformOrigin="0.5,0.5" Click="OkButton_Click" Cursor="Hand" FontFamily="Segoe UI Black" FontSize="17">
             </Button>

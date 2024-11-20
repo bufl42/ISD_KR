@@ -14,6 +14,7 @@ namespace Build_BuildersIS.Models
         public DateTime RequestDate { get; set; }
         public byte[] ObjectImage { get; set; }
         public List<MaterialItem> Materials { get; set; }
+        public string Status { get; set; }
 
         public string MaterialsSummary
         {

@@ -61,8 +61,7 @@ namespace Build_BuildersIS.ViewModels
 
         public byte[] ImagePreview => ImageData;
 
-        public ICommand AddMaterialCommand => new RelayCommand(param => AddMaterial(), CanAddMaterial);
-
+        public ICommand AddMaterialCommand => new RelayCommand(param => SaveMaterial(param as Window), CanAddMaterial);
         public MaterialViewModel()
         {
 
@@ -76,23 +75,6 @@ namespace Build_BuildersIS.ViewModels
             else { return false; }
         }
 
-        private void AddMaterial()
-        {
-            string query = @"
-            INSERT INTO Material (name, quantity, unit, imagedata)
-            VALUES (@Name, @Quantity, @Unit, @ImageData)";
-
-            var parameters = new Dictionary<string, object>
-            {
-                { "@Name", Name },
-                { "@Quantity", Quantity },
-                { "@Unit", Unit },
-                { "@ImageData", ImageData }
-            };
-
-            DatabaseHelper.ExecuteNonQuery(query, parameters);
-        }
-
         // Метод для обработки Drag and Drop изображения
         public void HandleImageDrop(string filePath)
         {
@@ -104,6 +86,55 @@ namespace Build_BuildersIS.ViewModels
             {
                 MessageBox.Show("Ошибка при загрузке изображения: " + ex.Message);
             }
+        }
+        private int? _materialID;
+        public int? MaterialID
+        {
+            get => _materialID;
+            set
+            {
+                _materialID = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private void SaveMaterial(Window window)
+        {
+            if (MaterialID == null)
+            {
+                // Логика добавления нового материала
+                string query = @"
+                    INSERT INTO Material (name, quantity, unit, imagedata) 
+                    VALUES (@Name, @Quantity, @Unit, @Image)";
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@Name", Name },
+                    { "@Quantity", Quantity },
+                    { "@Unit", Unit },
+                    { "@Image", ImageData }
+                };
+
+                DatabaseHelper.ExecuteNonQuery(query, parameters);
+            }
+            else
+            {
+                // Логика обновления существующего материала
+                string query = @"
+                    UPDATE Material 
+                    SET name = @Name, quantity = @Quantity, unit = @Unit, imagedata = @Image
+                    WHERE material_id = @MaterialID";
+                var parameters = new Dictionary<string, object>
+                {
+                    { "@Name", Name },
+                    { "@Quantity", Quantity },
+                    { "@Unit", Unit },
+                    { "@Image", ImageData },
+                    { "@MaterialID", MaterialID }
+                };
+
+                DatabaseHelper.ExecuteNonQuery(query, parameters);
+            }
+            window.Close();
         }
     }
 }

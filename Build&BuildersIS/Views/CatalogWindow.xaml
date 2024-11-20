@@ -38,7 +38,9 @@
                 </Grid>
             </Border>
 
-            <ListBox ItemsSource="{Binding FilteredMaterials}" Margin="224,19,10,10" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="Transparent" BorderBrush="#FF3A3A3A" ItemContainerStyle="{StaticResource CustomListBoxItemStyle}">
+            <ListBox ItemsSource="{Binding FilteredMaterials}" Margin="224,19,10,10" Grid.Row="1" HorizontalAlignment="Stretch" 
+                     VerticalAlignment="Stretch" Background="Transparent" BorderBrush="#FF3A3A3A" SelectedItem="{Binding SelectedMaterial}"
+                     ItemContainerStyle="{StaticResource CustomListBoxItemStyle}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="Transparent" BorderThickness="1" Padding="8" CornerRadius="15" Width="475" Height="96" >
@@ -57,8 +59,8 @@
                 </ListBox.ItemTemplate>
             </ListBox>
             <Button Content="Добавить материал" Command="{Binding AddMaterialCommand}" Style="{StaticResource FlatYellowButtonStyle}" Height="45" Width="199" HorizontalAlignment="Left" FontFamily="Impact" FontSize="18" FontWeight="Normal" Margin="10,219,0,149" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
-            <Button Content="Редактировать" Command="{Binding Command}" Style="{StaticResource FlatYellowButtonStyle}" Height="45" Width="199" HorizontalAlignment="Left" FontFamily="Impact" FontSize="18" FontWeight="Normal" Margin="10,279,0,89" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
-            <Button Content="Удалить материал" Command="{Binding Command}" Style="{StaticResource FlatYellowButtonStyle}" Height="45" Width="199" HorizontalAlignment="Left" FontFamily="Impact" FontSize="18" FontWeight="Normal" Margin="10,339,0,29" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
+            <Button Content="Редактировать" Command="{Binding EditMaterialCommand}" Style="{StaticResource FlatYellowButtonStyle}" Height="45" Width="199" HorizontalAlignment="Left" FontFamily="Impact" FontSize="18" FontWeight="Normal" Margin="10,279,0,89" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
+            <Button Content="Удалить материал" Command="{Binding DeleteMaterialCommand}" Style="{StaticResource FlatYellowButtonStyle}" Height="45" Width="199" HorizontalAlignment="Left" FontFamily="Impact" FontSize="18" FontWeight="Normal" Margin="10,339,0,29" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
             <Border Name="Overlay" Background="#80000000" Visibility="Collapsed" CornerRadius="15" Grid.RowSpan="3" Grid.ColumnSpan="2">
                 <Grid />
             </Border>

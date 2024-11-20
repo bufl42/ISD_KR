@@ -19,6 +19,16 @@ namespace Build_BuildersIS.ViewModels
     {
         private string _username;
         private string _userRole;
+        private MaterialRequest _selectedRequest;
+        public MaterialRequest SelectedRequest
+        {
+            get => _selectedRequest;
+            set
+            {
+                _selectedRequest = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public ObservableCollection<Project> Projects { get; set; }
@@ -27,6 +37,8 @@ namespace Build_BuildersIS.ViewModels
         public ObservableCollection<MenuItem> MenuItems { get; set; } = new ObservableCollection<MenuItem>();
 
         public ICommand OpenCatalogCommand => new RelayCommand(param => OpenCatalog(param as Window));
+        public ICommand ApproveRequestCommand => new RelayCommand(param => ApproveRequest(param as  Window),CanApproveOrDeny);
+        public ICommand DenyRequestCommand => new RelayCommand(param => DenyRequest(param as Window),CanApproveOrDeny);
 
         public string Username
         {
@@ -130,11 +142,12 @@ namespace Build_BuildersIS.ViewModels
             string query = @"
                 SELECT R.request_id, R.request_date, 
                 O.object_id, O.location AS ObjectAddress, O.imagedata AS ObjectImage,
-                M.material_id, M.name AS MaterialName, M.quantity AS MaterialQuantity, M.unit AS MaterialUnit
+                M.material_id, M.name AS MaterialName, RM.quantity AS MaterialQuantity, M.unit AS MaterialUnit
                 FROM Request R
                 JOIN RequestMaterial RM ON R.request_id = RM.request_id
                 JOIN Material M ON RM.material_id = M.material_id
                 JOIN Object O ON R.object_id = O.object_id
+                WHERE R.status = 'PRO'
                 ORDER BY R.request_id, M.material_id;";
 
             DataTable requestData = DatabaseHelper.ExecuteQuery(query);
@@ -164,7 +177,7 @@ namespace Build_BuildersIS.ViewModels
                     request.Materials.Add(new MaterialItem
                     {
                         Name = row["MaterialName"].ToString(),
-                        Quantity = Convert.ToDouble(row["MaterialQuantity"]),
+                        Quantity = Convert.ToDouble(row["MaterialQuantity"]), // Теперь это запрашиваемое количество
                         Unit = row["MaterialUnit"].ToString()
                     });
 
@@ -176,7 +189,7 @@ namespace Build_BuildersIS.ViewModels
                     existingRequest.Materials.Add(new MaterialItem
                     {
                         Name = row["MaterialName"].ToString(),
-                        Quantity = Convert.ToDouble(row["MaterialQuantity"]),
+                        Quantity = Convert.ToDouble(row["MaterialQuantity"]), // Теперь это запрашиваемое количество
                         Unit = row["MaterialUnit"].ToString()
                     });
                 }
@@ -191,8 +204,8 @@ namespace Build_BuildersIS.ViewModels
             {
                 case "WHW":
                     MenuItems.Add(new MenuItem { Title = "Каталог", Command = OpenCatalogCommand });
-                    MenuItems.Add(new MenuItem { Title = "Утвердить запрос" });
-                    MenuItems.Add(new MenuItem { Title = "Отклонить запрос" });
+                    MenuItems.Add(new MenuItem { Title = "Утвердить запрос", Command = ApproveRequestCommand });
+                    MenuItems.Add(new MenuItem { Title = "Отклонить запрос", Command = DenyRequestCommand });
                     // Добавьте другие кнопки для Кладовщика при необходимости
                     break;
 
@@ -239,6 +252,91 @@ namespace Build_BuildersIS.ViewModels
             {
                 MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void ApproveRequest(Window window)
+        {
+            try
+            {
+                if (SelectedRequest == null) return;
+
+                // Проверяем наличие материалов на складе
+                foreach (var material in SelectedRequest.Materials)
+                {
+                    string checkQuery = "SELECT quantity FROM Material WHERE name = @MaterialName";
+                    var parameters = new Dictionary<string, object>
+                    {
+                        { "@MaterialName", material.Name }
+                    };
+
+                    object result = DatabaseHelper.ExecuteScalar(checkQuery, parameters);
+                    double quantityInStock = result == null ? 0 : Convert.ToDouble(result);
+                    if (quantityInStock < material.Quantity)
+                    {
+                        ShowErrorMessage(window, "Недостаточно материалов.", false);
+                        return;
+                    }
+                }
+
+                // Списываем материалы со склада
+                foreach (var material in SelectedRequest.Materials)
+                {
+                    string updateQuery = @"
+                        UPDATE Material 
+                        SET quantity = quantity - @Quantity 
+                        WHERE name = @MaterialName";
+                    var parameters = new Dictionary<string, object>
+                        {
+                            { "@Quantity", material.Quantity },
+                            { "@MaterialName", material.Name }
+                        };
+
+                    DatabaseHelper.ExecuteNonQuery(updateQuery, parameters);
+                }
+
+                // Обновляем статус запроса
+                string approveQuery = @"
+                        UPDATE Request 
+                        SET status = 'APR' 
+                        WHERE request_id = @RequestID";
+                var approveParameters = new Dictionary<string, object>
+                        {
+                            { "@RequestID", SelectedRequest.RequestID }
+                        };
+
+                DatabaseHelper.ExecuteNonQuery(approveQuery, approveParameters);
+
+                ShowErrorMessage(window, "Запрос успешно подтвержден.", true);
+                LoadRequests();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DenyRequest(Window window)
+        {
+            if (SelectedRequest == null) return;
+
+            // Обновляем статус запроса
+            string denyQuery = @"
+                UPDATE Request 
+                SET status = 'DEN' 
+                WHERE request_id = @RequestID";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@RequestID", SelectedRequest.RequestID }
+            };
+
+            DatabaseHelper.ExecuteNonQuery(denyQuery, parameters);
+            ShowErrorMessage(window, "Запрос отклонен.", true);
+            LoadRequests();
+        }
+
+        private bool CanApproveOrDeny(object param)
+        {
+            return SelectedRequest != null;
         }
 
     }
