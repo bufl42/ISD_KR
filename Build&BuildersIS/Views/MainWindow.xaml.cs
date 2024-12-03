@@ -1,4 +1,5 @@
-﻿using Build_BuildersIS.Models;
+﻿using Build_BuildersIS.DataBase;
+using Build_BuildersIS.Models;
 using Build_BuildersIS.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -30,11 +31,16 @@ namespace Build_BuildersIS
             {
                 case "ADM":
                     imagePath = "pack://application:,,,/Resources/account-star.png";
+                    ProjectsListBox.Visibility = Visibility.Collapsed;
+                    TasksListBox.Visibility = Visibility.Collapsed;
+                    UsersListBox.Visibility = Visibility.Visible;
+                    RequestsListBox.Visibility = Visibility.Collapsed;
                     break;
                 case "WHW":
                     imagePath = "pack://application:,,,/Resources/warehouse-worker.png";
                     ProjectsListBox.Visibility = Visibility.Collapsed;
                     TasksListBox.Visibility = Visibility.Collapsed;
+                    UsersListBox.Visibility = Visibility.Collapsed;
                     RequestsListBox.Visibility = Visibility.Visible;
                     break;
                 case "MNG":
@@ -42,17 +48,21 @@ namespace Build_BuildersIS
                     ProjectsListBox.Visibility = Visibility.Visible;
                     TasksListBox.Visibility = Visibility.Collapsed;
                     RequestsListBox.Visibility= Visibility.Collapsed;
+                    UsersListBox.Visibility = Visibility.Collapsed;
                     break;
                 default:
                     imagePath = "pack://application:,,,/Resources/worker.png";
                     ProjectsListBox.Visibility = Visibility.Collapsed;
                     TasksListBox.Visibility = Visibility.Visible;
                     RequestsListBox.Visibility = Visibility.Collapsed;
+                    UsersListBox.Visibility = Visibility.Collapsed;
                     break;
             }
             BitmapImage bitmap = new BitmapImage(new Uri(imagePath));
             UserImage.Source = bitmap;
         }
+
+
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -64,7 +74,6 @@ namespace Build_BuildersIS
             var viewModel = DataContext as MainViewModel;
             if (viewModel != null)
             {
-                UsernameLabel.Content = viewModel.Username;
                 UserRoleLabel.Content = RoleDescription.GetRoleDescription(viewModel.UserRole);
             }
         }

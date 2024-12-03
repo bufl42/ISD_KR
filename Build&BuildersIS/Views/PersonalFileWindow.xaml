@@ -1,0 +1,70 @@
+﻿<Window x:Class="Build_BuildersIS.Views.PersonalFileWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels"
+        xmlns:ms="clr-namespace:Build_BuildersIS.Models"
+        mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen"
+        Title="PersonalFileWindow" Height="380" Width="520">
+    <Window.DataContext>
+        <vm:PersonalFileViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ms:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
+    </Window.Resources>
+
+    <Border Background="#FF484848" CornerRadius="15" BorderBrush="Black" BorderThickness="1">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок окна -->
+            <Label Content="{Binding ReternUserName}" Margin="10,5,0,0" FontSize="15" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8"/>
+
+            <!-- Кнопка закрытия -->
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" 
+                    Style="{StaticResource CloseButtonStyle}" HorizontalAlignment="Right" Margin="0,5,10,0" Width="25" Height="25">
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform"/>
+                </Button.Background>
+            </Button>
+
+            <!-- Основное содержимое -->
+            <Grid Grid.Row="1" Margin="0,2,0,0">
+                <Label Content="Фамилия" Foreground="#FFB8B8B8" FontSize="17" Height="30" Margin="248,14,187,297"/>
+                <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Height="30" Width="250" Margin="248,44,20,267" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
+
+                <Label Content="Имя" Margin="248,74,200,237" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="70"/>
+                <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Height="30" Width="250" Margin="248,104,20,207" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
+
+                <Label Content="Отчество" Margin="248,134,187,177" Foreground="#FFB8B8B8" FontSize="17" Height="30"/>
+                <TextBox Text="{Binding MiddleName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="248,164,20,147" Height="30" Width="250"/>
+
+                <Label Content="Адрес" Margin="20,199,428,112" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="70"/>
+                <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="20,229,248,82" Height="30" Width="250"/>
+
+                <Label Content="Номер трудовой книжки" Margin="20,259,292,52" Foreground="#FFB8B8B8" FontSize="17" Height="30"/>
+                <TextBox Text="{Binding WorkBookNumber, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="20,289,248,22" Height="30" Width="250"/>
+
+                <Label Content="Дата рождения" Margin="283,199,65,112" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="170"/>
+                <DatePicker SelectedDate="{Binding BirthDate, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" FontSize="17" Margin="283,229,20,82"  Height="30"/>
+
+                <Border BorderBrush="Gray" BorderThickness="1" Margin="20,14,318,147" AllowDrop="True" Drop="ImageDrop" PreviewDragOver="ImagePreviewDragOver" Width="180" Height="180" >
+                    <Grid>
+                        <Image Source="{Binding PhotoPreview, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill"/>
+                        <TextBlock Text="Перетащите" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Width="104" Height="40" Margin="0,24,0,0"/>
+                        <TextBlock Text="изображение" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="116" Height="40"/>
+                        <TextBlock Text="сюда" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Width="50" Height="40" Margin="0,114,0,0"/>
+                    </Grid>
+                </Border>
+
+                <Button Content="Сохранить" Command="{Binding SaveCommand}" FontSize="16" Background="#FFFFCA0E" FontFamily="Impact" Margin="283,289,20,22" Style="{StaticResource FlatYellowButtonStyle}" Grid.Row="1" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>

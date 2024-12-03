@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\obj\Debug\
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\
 Build_BuildersIS
 none
 false
 DEBUG;TRACE
-C:\Users\denbu\Рабочий стол\ISD_KR\Build&BuildersIS\App.xaml
-71706324688
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\App.xaml
+81645016022
 141277719
-31-165140642
+33-281009497
 13-1310406943
-Views\CatalogWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\MaterialWindow.xaml;Views\MessageBoxWindow.xaml;Views\RegisterWindow.xaml;Views\WindowStyle.xaml;
+Views\CatalogWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\MaterialWindow.xaml;Views\MessageBoxWindow.xaml;Views\PersonalFileWindow.xaml;Views\RegisterWindow.xaml;Views\WindowStyle.xaml;
 
 False
 

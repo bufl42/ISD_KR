@@ -10,6 +10,6 @@ namespace Build_BuildersIS.Models
     {
         // Строка подключения к базе данных
         //public static readonly string ConnectionString = @"Data Source=LAPTOP-TIBM9IB0\MSSQLSERVER01;Initial Catalog=Build&BuildersIS;Integrated Security=True";
-        public static readonly string ConnectionString = @"Data Source=DESKTOP-73SCAIN;Initial Catalog=Build&BuildersIS;Integrated Security=True";
+        public static readonly string ConnectionString = @"Data Source=DEN\SQLEXPRESS;Initial Catalog=Build&BuildersIS;Integrated Security=True";
     }
 }
