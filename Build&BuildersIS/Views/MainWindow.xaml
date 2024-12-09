@@ -40,6 +40,14 @@
                     <ImageBrush ImageSource="pack://application:,,,/Resources/minus.png" Stretch="Uniform"/>
                 </Button.Background>
             </Button>
+            <Border Margin="278,5,10,5" BorderBrush="Transparent" BorderThickness="1" Grid.Column="1" Grid.Row="1" Name="MainSearch" Visibility="Visible">
+                <Grid>
+                    <Label Name="SearchTitle" Content="Поиск" Foreground="#FFB8B8B8" FontSize="21" Margin="278,0,10,75" RenderTransformOrigin="0.5,0.5"/>
+                    <Label Name="SearchDescription" Content="Введите название или ID" Foreground="#FFB8B8B8" FontSize="15" Margin="168,37,10,39"/>
+                    <TextBox Text="{Binding SearchQuery, UpdateSourceTrigger=PropertyChanged}" Margin="91,69,10,8" Background="Transparent" BorderBrush="#FFB8B8B8"  Style="{StaticResource NoSelectTextBoxStyle}" Foreground="#FFB8B8B8" FontSize="15"/>
+                    <Button Content="Сброс" Command="{Binding ResetCommand}" Height="30" Margin="6,70,274,8" Style="{StaticResource FlatYellowButtonStyle}" FontFamily="Impact" FontSize="17"/>
+                </Grid>
+            </Border>
             <Label Name="UsernameLabel" FontSize="17" Content="{Binding DisplayName}" HorizontalAlignment="Left" Margin="125,6,0,0" VerticalAlignment="Top" Width="400" Grid.Row="1" Foreground="#FFB8B8B8" Grid.ColumnSpan="2" Height="33"/>
             <Label Name="UserRoleLabel" FontSize="17" Content="UserRole" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Center" Width="152" Grid.Row="1" Foreground="#FFB8B8B8" Grid.ColumnSpan="2"/>
             <Image Name="UserImage" Grid.Row="1" Margin="9,5,89,5" Stretch="Fill"/>
@@ -47,7 +55,7 @@
             <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,0,21" Background="#FFB8B8B8">
                 <Grid Margin="0,0,461,-19" Background="#FFB8B8B8"/>
                 <Border x:Name="ProjectsListBox" Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19" Visibility="Collapsed">
-                    <ListBox  ItemsSource="{Binding Projects}" Background="Transparent" BorderBrush="Transparent" Margin="0,0,0,0" ItemContainerStyle="{StaticResource CustomListBoxItemStyle}">
+                    <ListBox  ItemsSource="{Binding FilteredProjects}" Background="Transparent" BorderBrush="Transparent" Margin="0,0,0,0" ItemContainerStyle="{StaticResource CustomListBoxItemStyle}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderBrush="Transparent" BorderThickness="1" Padding="8" CornerRadius="15" Width="606" Height="96" Margin="5" >
@@ -90,7 +98,7 @@
                 </Border>
 
                 <Border x:Name="RequestsListBox" Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19" Visibility="Collapsed">
-                    <ListBox ItemsSource="{Binding Requests}" 
+                    <ListBox ItemsSource="{Binding FilteredRequests}" 
                              HorizontalAlignment="Stretch" 
                              VerticalAlignment="Stretch" 
                              Background="Transparent" 
@@ -120,7 +128,7 @@
                 </Border>
 
                 <Border x:Name="UsersListBox" Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19" Visibility="Visible">
-                    <ListBox ItemsSource="{Binding Users}" 
+                    <ListBox ItemsSource="{Binding FilteredUsers}" 
                              HorizontalAlignment="Stretch" 
                              VerticalAlignment="Stretch" 
                              Background="Transparent" 

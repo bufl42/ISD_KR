@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.Media3D;
 
 namespace Build_BuildersIS.ViewModels
 {
@@ -22,7 +23,11 @@ namespace Build_BuildersIS.ViewModels
         private string _userRole;
         private MaterialRequest _selectedRequest;
         private User _selectedUser;
-        public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>();
+        private ObservableCollection<User> _filteredusers;
+        private ObservableCollection<Project> _filteredprojects;
+        private ObservableCollection<MaterialRequest> _filteredrequsts;
+        private string _searchQuery;
+        public ObservableCollection<User> Users;
         public MaterialRequest SelectedRequest
         {
             get => _selectedRequest;
@@ -42,6 +47,46 @@ namespace Build_BuildersIS.ViewModels
             }
         }
 
+        public ObservableCollection<User> FilteredUsers
+        {
+            get => _filteredusers;
+            set
+            {
+                _filteredusers = value;
+                OnPropertyChanged(nameof(FilteredUsers));
+            }
+        }
+
+        public ObservableCollection<Project> FilteredProjects
+        {
+            get => _filteredprojects;
+            set
+            {
+                _filteredprojects = value;
+                OnPropertyChanged(nameof(FilteredProjects));
+            }
+        }
+        public ObservableCollection<MaterialRequest> FilteredRequests
+        {
+            get => _filteredrequsts;
+            set
+            {
+                _filteredrequsts = value;
+                OnPropertyChanged(nameof(FilteredRequests));
+            }
+        }
+
+        public string SearchQuery
+        {
+            get => _searchQuery;
+            set
+            {
+                _searchQuery = value;
+                OnPropertyChanged(nameof(SearchQuery));
+                FilterElemets();
+            }
+        }
+
         public ObservableCollection<Project> Projects { get; set; }
         public ObservableCollection<WorkerTask> WorkerTasks { get; set; }
         public ObservableCollection<MaterialRequest> Requests { get; set; } = new ObservableCollection<MaterialRequest>();
@@ -55,6 +100,8 @@ namespace Build_BuildersIS.ViewModels
         public ICommand GoToManagerFunctionalityCommand => new RelayCommand(param => GoToManagerFunctionality(param as Window));
         public ICommand GoToAdminFunctionalityCommand => new RelayCommand(param => GoToAdminFunctionality(param as Window));
         public ICommand GoToWarehouseworkerFunctionalityCommand => new RelayCommand(param => GoToWarehouseworkerFunctionality(param as Window));
+        public ICommand SearchCommand => new RelayCommand(param => FilterElemets());
+        public ICommand ResetCommand => new RelayCommand(param => ResetSearch());
         public string Username
         {
             get => _username;
@@ -84,6 +131,10 @@ namespace Build_BuildersIS.ViewModels
         {
             Projects = new ObservableCollection<Project>();
             WorkerTasks = new ObservableCollection<WorkerTask>();
+            Users = new ObservableCollection<User>();
+            FilteredUsers = new ObservableCollection<User>();
+            FilteredProjects = new ObservableCollection<Project>();
+            FilteredRequests = new ObservableCollection<MaterialRequest>();
             Username = username;
             UserRole = userRole;
             LoadProjects();
@@ -141,6 +192,8 @@ namespace Build_BuildersIS.ViewModels
                     ProjectImage = row["imagedata"] as byte[]
                 });
             }
+
+            FilteredProjects = new ObservableCollection<Project>(Projects);
         }
 
         private void LoadWorkerTasks()
@@ -239,6 +292,8 @@ namespace Build_BuildersIS.ViewModels
                     });
                 }
             }
+
+            FilteredRequests = new ObservableCollection<MaterialRequest>(Requests);
         }
 
         private void LoadUsers()
@@ -301,6 +356,8 @@ namespace Build_BuildersIS.ViewModels
                     BirthDate = row["BirthDate"] == DBNull.Value ? null : (DateTime?)row["BirthDate"]
                 });
             }
+
+            FilteredUsers = new ObservableCollection<User>(Users);
         }
 
         private void LoadMenuItems()
@@ -457,7 +514,6 @@ namespace Build_BuildersIS.ViewModels
             {
                 if (SelectedRequest == null) return;
 
-                // Проверяем наличие материалов на складе
                 foreach (var material in SelectedRequest.Materials)
                 {
                     string checkQuery = "SELECT quantity FROM Material WHERE name = @MaterialName";
@@ -475,7 +531,6 @@ namespace Build_BuildersIS.ViewModels
                     }
                 }
 
-                // Списываем материалы со склада
                 foreach (var material in SelectedRequest.Materials)
                 {
                     string updateQuery = @"
@@ -491,7 +546,6 @@ namespace Build_BuildersIS.ViewModels
                     DatabaseHelper.ExecuteNonQuery(updateQuery, parameters);
                 }
 
-                // Обновляем статус запроса
                 string approveQuery = @"
                         UPDATE Request 
                         SET status = 'APR' 
@@ -515,8 +569,6 @@ namespace Build_BuildersIS.ViewModels
         private void DenyRequest(Window window)
         {
             if (SelectedRequest == null) return;
-
-            // Обновляем статус запроса
             string denyQuery = @"
                 UPDATE Request 
                 SET status = 'DEN' 
@@ -543,10 +595,13 @@ namespace Build_BuildersIS.ViewModels
 
         private void GoToManagerFunctionality(Window window)
         {
+            var searchTitle = window.FindName("SearchTitle") as UIElement;
+            var searchDescription = window.FindName("SearchDescription") as UIElement;
             var managerListBox = window.FindName("ProjectsListBox") as UIElement;
             var adminListBox = window.FindName("UsersListBox") as UIElement;
             adminListBox.Visibility = Visibility.Collapsed;
             managerListBox.Visibility = Visibility.Visible;
+            UserRole = "MNG";
             MenuItems.Clear();
             MenuItems.Add(new MenuItem { Title = "Создать новый проект", Command = OpenCatalogCommand });
             MenuItems.Add(new MenuItem { Title = "Запрос на материалы", Command = OpenCatalogCommand });
@@ -559,6 +614,7 @@ namespace Build_BuildersIS.ViewModels
             var adminListBox = window.FindName("UsersListBox") as UIElement;
             adminListBox.Visibility = Visibility.Collapsed;
             managerListBox.Visibility = Visibility.Visible;
+            UserRole = "WHW";
             MenuItems.Clear();
             MenuItems.Add(new MenuItem { Title = "Каталог", Command = OpenCatalogCommand });
             MenuItems.Add(new MenuItem { Title = "Утвердить запрос", Command = ApproveRequestCommand });
@@ -574,7 +630,71 @@ namespace Build_BuildersIS.ViewModels
             warehouseworkerListBox.Visibility = Visibility.Collapsed;
             adminListBox.Visibility = Visibility.Visible;
             managerListBox.Visibility = Visibility.Collapsed;
+            UserRole = "ADM";
             LoadMenuItems();
+        }
+        private void FilterElemets()
+        {
+
+            switch (UserRole)
+            { 
+
+                case "MNG":
+                    if (string.IsNullOrWhiteSpace(SearchQuery))
+                    {
+                        FilteredProjects = new ObservableCollection<Project>(Projects);
+                        return;
+                    }
+
+                    var lowerQueryM = SearchQuery.ToLower().Trim(' ');
+                    FilteredProjects = new ObservableCollection<Project>(
+                        Projects.Where(p => 
+                        p.ProjectID.ToString().Contains(lowerQueryM) ||
+                        p.ProjectName.ToLower().Contains(lowerQueryM)
+                        )
+                    );
+                    break;
+
+                case "WHW":
+                    if (string.IsNullOrWhiteSpace(SearchQuery))
+                    {
+                        FilteredRequests = new ObservableCollection<MaterialRequest>(Requests);
+                        return;
+                    }
+
+                    var lowerQueryW = SearchQuery.ToLower().Trim(' ');
+
+                    FilteredRequests = new ObservableCollection<MaterialRequest>(
+                        Requests.Where(r =>
+                        r.RequestID.ToString().Contains(lowerQueryW) ||
+                        r.ObjectAddress.ToLower().Contains(lowerQueryW) ||
+                        r.MaterialsSummary.ToLower().Contains(lowerQueryW)
+                        )
+                    );
+                    break;
+                case "ADM":
+
+                    if (string.IsNullOrWhiteSpace(SearchQuery))
+                    {
+                        FilteredUsers = new ObservableCollection<User>(Users);
+                        return;
+                    }
+
+                    var lowerQueryA = SearchQuery.ToLower().Trim(' ');
+                    FilteredUsers = new ObservableCollection<User>(
+                        Users.Where(m =>
+                            m.FullName.ToLower().Contains(lowerQueryA) ||
+                            m.UserID.ToString().Contains(lowerQueryA) ||
+                            m.Username.ToLower().Contains(lowerQueryA)
+                        )
+                    );
+                    break;
+            }
+        }
+        private void ResetSearch()
+        {
+            SearchQuery = string.Empty;
+            FilterElemets();
         }
     }
 }

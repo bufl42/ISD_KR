@@ -56,6 +56,7 @@ namespace Build_BuildersIS
                     TasksListBox.Visibility = Visibility.Visible;
                     RequestsListBox.Visibility = Visibility.Collapsed;
                     UsersListBox.Visibility = Visibility.Collapsed;
+                    MainSearch.Visibility = Visibility.Collapsed;
                     break;
             }
             BitmapImage bitmap = new BitmapImage(new Uri(imagePath));
