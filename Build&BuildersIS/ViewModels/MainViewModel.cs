@@ -49,10 +49,12 @@ namespace Build_BuildersIS.ViewModels
 
         public ICommand OpenCatalogCommand => new RelayCommand(param => OpenCatalog(param as Window));
         public ICommand OpenPersonalFileCommand => new RelayCommand(param => OpenPersonalFile(param as Window,Username));
-        public ICommand OpenEditPersonalFileCommand => new RelayCommand(param => OpenEditPersonalFile(param as Window));
+        public ICommand OpenEditPersonalFileCommand => new RelayCommand(param => OpenEditPersonalFile(param as Window), CanEditUser);
         public ICommand ApproveRequestCommand => new RelayCommand(param => ApproveRequest(param as  Window),CanApproveOrDeny);
         public ICommand DenyRequestCommand => new RelayCommand(param => DenyRequest(param as Window),CanApproveOrDeny);
-
+        public ICommand GoToManagerFunctionalityCommand => new RelayCommand(param => GoToManagerFunctionality(param as Window));
+        public ICommand GoToAdminFunctionalityCommand => new RelayCommand(param => GoToAdminFunctionality(param as Window));
+        public ICommand GoToWarehouseworkerFunctionalityCommand => new RelayCommand(param => GoToWarehouseworkerFunctionality(param as Window));
         public string Username
         {
             get => _username;
@@ -311,7 +313,6 @@ namespace Build_BuildersIS.ViewModels
                     MenuItems.Add(new MenuItem { Title = "Каталог", Command = OpenCatalogCommand });
                     MenuItems.Add(new MenuItem { Title = "Утвердить запрос", Command = ApproveRequestCommand });
                     MenuItems.Add(new MenuItem { Title = "Отклонить запрос", Command = DenyRequestCommand });
-                    // Добавьте другие кнопки для Кладовщика при необходимости
                     break;
 
                 //case "Менеджер":
@@ -327,8 +328,8 @@ namespace Build_BuildersIS.ViewModels
 
                 case "ADM":
                     MenuItems.Add(new MenuItem { Title = "Редактирование", Command = OpenEditPersonalFileCommand });
-                    MenuItems.Add(new MenuItem { Title = "Менеджер", Command = OpenCatalogCommand });
-                    MenuItems.Add(new MenuItem { Title = "Кладовщик", Command = OpenCatalogCommand });
+                    MenuItems.Add(new MenuItem { Title = "Менеджер", Command = GoToManagerFunctionalityCommand });
+                    MenuItems.Add(new MenuItem { Title = "Кладовщик", Command = GoToWarehouseworkerFunctionalityCommand });
                     break;
             }
         }       
@@ -450,7 +451,6 @@ namespace Build_BuildersIS.ViewModels
             }
             LoadUsers();
         }
-
         private void ApproveRequest(Window window)
         {
             try
@@ -536,5 +536,45 @@ namespace Build_BuildersIS.ViewModels
             return SelectedRequest != null;
         }
 
+        private bool CanEditUser(object param)
+        {
+            return SelectedUser != null;
+        }
+
+        private void GoToManagerFunctionality(Window window)
+        {
+            var managerListBox = window.FindName("ProjectsListBox") as UIElement;
+            var adminListBox = window.FindName("UsersListBox") as UIElement;
+            adminListBox.Visibility = Visibility.Collapsed;
+            managerListBox.Visibility = Visibility.Visible;
+            MenuItems.Clear();
+            MenuItems.Add(new MenuItem { Title = "Создать новый проект", Command = OpenCatalogCommand });
+            MenuItems.Add(new MenuItem { Title = "Запрос на материалы", Command = OpenCatalogCommand });
+            MenuItems.Add(new MenuItem { Title = "Вернутся", Command = GoToAdminFunctionalityCommand });
+        }
+
+        private void GoToWarehouseworkerFunctionality(Window window)
+        {
+            var managerListBox = window.FindName("RequestsListBox") as UIElement;
+            var adminListBox = window.FindName("UsersListBox") as UIElement;
+            adminListBox.Visibility = Visibility.Collapsed;
+            managerListBox.Visibility = Visibility.Visible;
+            MenuItems.Clear();
+            MenuItems.Add(new MenuItem { Title = "Каталог", Command = OpenCatalogCommand });
+            MenuItems.Add(new MenuItem { Title = "Утвердить запрос", Command = ApproveRequestCommand });
+            MenuItems.Add(new MenuItem { Title = "Отклонить запрос", Command = DenyRequestCommand });
+            MenuItems.Add(new MenuItem { Title = "Вернутся", Command = GoToAdminFunctionalityCommand });
+        }
+
+        private void GoToAdminFunctionality(Window window)
+        {
+            var warehouseworkerListBox = window.FindName("RequestsListBox") as UIElement;
+            var managerListBox = window.FindName("ProjectsListBox") as UIElement;
+            var adminListBox = window.FindName("UsersListBox") as UIElement;
+            warehouseworkerListBox.Visibility = Visibility.Collapsed;
+            adminListBox.Visibility = Visibility.Visible;
+            managerListBox.Visibility = Visibility.Collapsed;
+            LoadMenuItems();
+        }
     }
 }

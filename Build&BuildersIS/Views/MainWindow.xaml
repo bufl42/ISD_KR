@@ -29,7 +29,7 @@
                 <RowDefinition Height="120"/>
                 <RowDefinition Height="395"/>
             </Grid.RowDefinitions>
-            <Label Content="Build and Builders Information System" Grid.ColumnSpan="2" Margin="10,5,486,111" FontSize="15" FontFamily="Segoe UI Black" Grid.RowSpan="2" Foreground="#FFB8B8B8"/>
+            <Label Content="Build and Builders Information System" Grid.ColumnSpan="2" Margin="10,5,486,0" FontSize="15" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8"/>
             <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Style ="{StaticResource CloseButtonStyle}" Margin="615,10,10,0" Grid.Column="1" >
                 <Button.Background>
                     <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform" />
@@ -43,7 +43,7 @@
             <Label Name="UsernameLabel" FontSize="17" Content="{Binding DisplayName}" HorizontalAlignment="Left" Margin="125,6,0,0" VerticalAlignment="Top" Width="400" Grid.Row="1" Foreground="#FFB8B8B8" Grid.ColumnSpan="2" Height="33"/>
             <Label Name="UserRoleLabel" FontSize="17" Content="UserRole" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Center" Width="152" Grid.Row="1" Foreground="#FFB8B8B8" Grid.ColumnSpan="2"/>
             <Image Name="UserImage" Grid.Row="1" Margin="9,5,89,5" Stretch="Fill"/>
-            <Button Content="Кабинет" Command="{Binding OpenPersonalFileCommand}" Margin="125,85,3,6" Height="NaN" FontSize="17" Style="{StaticResource FlatYellowButtonStyle}" FontFamily="Impact" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
+            <Button Content="Кабинет" Command="{Binding OpenPersonalFileCommand}" Margin="125,85,5,6" Height="NaN" FontSize="17" Style="{StaticResource FlatYellowButtonStyle}" FontFamily="Impact" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
             <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,0,21" Background="#FFB8B8B8">
                 <Grid Margin="0,0,461,-19" Background="#FFB8B8B8"/>
                 <Border x:Name="ProjectsListBox" Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19" Visibility="Collapsed">
