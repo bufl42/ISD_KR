@@ -88,3 +88,5 @@ C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.exe
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Build&BuildersIS.pdb
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\PersonalFileWindow.g.cs
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\PersonalFileWindow.baml
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\ChangePasswordWindow.g.cs
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\ChangePasswordWindow.baml

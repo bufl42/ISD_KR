@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows;
 using System.IO;
 using System.Security.Policy;
+using Build_BuildersIS.Views;
 
 namespace Build_BuildersIS.ViewModels
 {
@@ -74,25 +75,14 @@ namespace Build_BuildersIS.ViewModels
             }
         }
 
-        public string ReternUserName
-        {
-            get
-            {
-                string query = "SELECT name FROM Users WHERE user_id = @UserId";
-                var parameters = new Dictionary<string, object> { { "@UserId", UserID } };
-                var result = DatabaseHelper.ExecuteQuery(query, parameters);
-                string name = Convert.ToString(result.Rows[1]["name"]);
-                return $"Личный кабинет: {name}";
-            }
-        }
-
         public byte[] PhotoPreview => Photo;
 
         public ICommand SaveCommand => new RelayCommand(SavePersonalFile, CanSavePersonalFile);
+        public ICommand ChangePasswordCommand => new RelayCommand(param => OpenChangePasswordWindow(param as Window));
 
         public PersonalFileViewModel()
         {
-            LoadPersonalFile(); // Загрузка данных при инициализации
+            LoadPersonalFile();
         }
 
         public void Initialize(int userId)
@@ -176,6 +166,27 @@ namespace Build_BuildersIS.ViewModels
             }
         }
 
-        
+        private void OpenChangePasswordWindow(Window window)
+        {
+            var overlay = window.FindName("Overlay") as UIElement;
+            if (overlay != null)
+            {
+                overlay.Visibility = Visibility.Visible;
+            }
+            var changePasswordWindow = new ChangePasswordWindow
+            {
+                Owner = window,
+                WindowStartupLocation = WindowStartupLocation.Manual,
+                DataContext = new ChangePasswordViewModel(UserID)
+            };
+
+            changePasswordWindow.Left = window.Left + (window.Width - changePasswordWindow.Width) / 2;
+            changePasswordWindow.Top = window.Top + (window.Height - changePasswordWindow.Height) / 2;
+
+            changePasswordWindow.Closed += (sender, e) => WindowClosed(window);
+            changePasswordWindow.ShowDialog();
+
+        }
+
     }
 }

@@ -42,8 +42,8 @@
             </Button>
             <Label Name="UsernameLabel" FontSize="17" Content="{Binding DisplayName}" HorizontalAlignment="Left" Margin="125,6,0,0" VerticalAlignment="Top" Width="400" Grid.Row="1" Foreground="#FFB8B8B8" Grid.ColumnSpan="2" Height="33"/>
             <Label Name="UserRoleLabel" FontSize="17" Content="UserRole" HorizontalAlignment="Left" Margin="124,0,0,0" VerticalAlignment="Center" Width="152" Grid.Row="1" Foreground="#FFB8B8B8" Grid.ColumnSpan="2"/>
-            <Image Name="UserImage" Grid.Row="1" Margin="5,5,85,5" Stretch="Fill" Width="110" Height="110"/>
-            <Button Content="Кабинет" Command="{Binding OpenPersonalFileCommand}" Margin="120,82,0,6" Height="NaN" FontSize="19" Style="{StaticResource FlatYellowButtonStyle}" FontFamily="Impact" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
+            <Image Name="UserImage" Grid.Row="1" Margin="9,5,89,5" Stretch="Fill"/>
+            <Button Content="Кабинет" Command="{Binding OpenPersonalFileCommand}" Margin="125,85,3,6" Height="NaN" FontSize="17" Style="{StaticResource FlatYellowButtonStyle}" FontFamily="Impact" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" Grid.Row="1"/>
             <Grid Grid.Column="1" Grid.Row="2" Margin="0,0,0,21" Background="#FFB8B8B8">
                 <Grid Margin="0,0,461,-19" Background="#FFB8B8B8"/>
                 <Border x:Name="ProjectsListBox" Background="#FFB8B8B8" CornerRadius="15" BorderBrush="Black" BorderThickness="0" Margin="0,0,2,-19" Visibility="Collapsed">

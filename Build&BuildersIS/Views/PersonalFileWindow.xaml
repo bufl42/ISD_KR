@@ -23,7 +23,7 @@
             </Grid.RowDefinitions>
 
             <!-- Заголовок окна -->
-            <Label Content="{Binding ReternUserName}" Margin="10,5,0,0" FontSize="15" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8"/>
+            <Label Name="WindowTitle" Margin="10,5,0,0" FontSize="15" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8"/>
 
             <!-- Кнопка закрытия -->
             <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" 
@@ -55,16 +55,20 @@
 
                 <Border BorderBrush="Gray" BorderThickness="1" Margin="20,14,318,147" AllowDrop="True" Drop="ImageDrop" PreviewDragOver="ImagePreviewDragOver" Width="180" Height="180" >
                     <Grid>
-                        <Image Source="{Binding PhotoPreview, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill"/>
                         <TextBlock Text="Перетащите" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Width="104" Height="40" Margin="0,24,0,0"/>
                         <TextBlock Text="изображение" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="116" Height="40"/>
                         <TextBlock Text="сюда" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Width="50" Height="40" Margin="0,114,0,0"/>
+                        <Image Source="{Binding PhotoPreview, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill"/>
                     </Grid>
                 </Border>
 
-                <Button Content="Сохранить" Command="{Binding SaveCommand}" FontSize="16" Background="#FFFFCA0E" FontFamily="Impact" Margin="283,289,20,22" Style="{StaticResource FlatYellowButtonStyle}" Grid.Row="1" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-
+                <Button Content="Сохранить" Command="{Binding SaveCommand}" FontSize="16" FontFamily="Impact" Margin="397,289,20,22" Style="{StaticResource FlatYellowButtonStyle}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Button Content="Изм. пароль" Command="{Binding ChangePasswordCommand}" FontSize="16" FontFamily="Impact" Margin="283,289,134,22" Style="{StaticResource FlatYellowButtonStyle}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
             </Grid>
+
+            <Border Name="Overlay" Background="#80000000" Visibility="Collapsed" CornerRadius="15" Grid.RowSpan="3" Grid.ColumnSpan="2">
+                <Grid />
+            </Border>
         </Grid>
     </Border>
 </Window>

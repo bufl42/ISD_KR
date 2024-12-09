@@ -20,10 +20,11 @@ namespace Build_BuildersIS.Views
     /// </summary>
     public partial class PersonalFileWindow : Window
     {
-        public PersonalFileWindow(int userId)
+        public PersonalFileWindow(int userId, string username)
         {
             InitializeComponent();
             (DataContext as PersonalFileViewModel).Initialize(userId);
+            WindowTitle.Content = $"Личный кабинет: {username}";
         }
 
         private void ImageDrop(object sender, DragEventArgs e)

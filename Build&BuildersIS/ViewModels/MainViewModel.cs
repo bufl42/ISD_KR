@@ -21,8 +21,8 @@ namespace Build_BuildersIS.ViewModels
         private string _username;
         private string _userRole;
         private MaterialRequest _selectedRequest;
+        private User _selectedUser;
         public ObservableCollection<User> Users { get; set; } = new ObservableCollection<User>();
-        public User SelectedUser { get; set; }
         public MaterialRequest SelectedRequest
         {
             get => _selectedRequest;
@@ -32,7 +32,15 @@ namespace Build_BuildersIS.ViewModels
                 OnPropertyChanged();
             }
         }
-
+        public User SelectedUser
+        {
+            get => _selectedUser;
+            set
+            {
+                _selectedUser = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ObservableCollection<Project> Projects { get; set; }
         public ObservableCollection<WorkerTask> WorkerTasks { get; set; }
@@ -41,6 +49,7 @@ namespace Build_BuildersIS.ViewModels
 
         public ICommand OpenCatalogCommand => new RelayCommand(param => OpenCatalog(param as Window));
         public ICommand OpenPersonalFileCommand => new RelayCommand(param => OpenPersonalFile(param as Window,Username));
+        public ICommand OpenEditPersonalFileCommand => new RelayCommand(param => OpenEditPersonalFile(param as Window));
         public ICommand ApproveRequestCommand => new RelayCommand(param => ApproveRequest(param as  Window),CanApproveOrDeny);
         public ICommand DenyRequestCommand => new RelayCommand(param => DenyRequest(param as Window),CanApproveOrDeny);
 
@@ -317,9 +326,9 @@ namespace Build_BuildersIS.ViewModels
                 //    break;
 
                 case "ADM":
-                    MenuItems.Add(new MenuItem { Title = "Управление пользователями", Command = OpenCatalogCommand });
-                    MenuItems.Add(new MenuItem { Title = "Просмотр всех проектов", Command = OpenCatalogCommand });
-                    // Добавьте другие кнопки для Администратора при необходимости
+                    MenuItems.Add(new MenuItem { Title = "Редактирование", Command = OpenEditPersonalFileCommand });
+                    MenuItems.Add(new MenuItem { Title = "Менеджер", Command = OpenCatalogCommand });
+                    MenuItems.Add(new MenuItem { Title = "Кладовщик", Command = OpenCatalogCommand });
                     break;
             }
         }       
@@ -372,8 +381,60 @@ namespace Build_BuildersIS.ViewModels
 
                 int userId = Convert.ToInt32(result.Rows[0]["user_id"]);
 
-                var personalfileWindow = new PersonalFileWindow(userId)
+                var personalfileWindow = new PersonalFileWindow(userId, username)
                 {
+                    Owner = window,
+                    WindowStartupLocation = WindowStartupLocation.Manual,
+                };
+                personalfileWindow.Left = window.Left + (window.Width - personalfileWindow.Width) / 2;
+                personalfileWindow.Top = window.Top + (window.Height - personalfileWindow.Height) / 2;
+
+                personalfileWindow.Closed += (sender, e) => WindowClosed(window);
+                personalfileWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            LoadUsers();
+        }
+
+        private void OpenEditPersonalFile(Window window)
+        {
+            try
+            {
+                string username = SelectedUser.Username;
+                var overlay = window.FindName("Overlay") as UIElement;
+                if (overlay != null)
+                {
+                    overlay.Visibility = Visibility.Visible;
+                }
+
+                string query = "SELECT user_id FROM Users WHERE name = @Username";
+                var parameters = new Dictionary<string, object> { { "@Username", username } };
+                var result = DatabaseHelper.ExecuteQuery(query, parameters);
+
+                if (result.Rows.Count == 0)
+                {
+                    MessageBox.Show("Пользователь не найден.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                int userId = Convert.ToInt32(result.Rows[0]["user_id"]);
+
+                var personalfileWindow = new PersonalFileWindow(userId, username)
+                {
+                    DataContext = new PersonalFileViewModel
+                    {
+                        UserID = SelectedUser.UserID,
+                        LastName = SelectedUser.LastName,
+                        FirstName = SelectedUser.FirstName,
+                        MiddleName = SelectedUser.MiddleName,
+                        Address = SelectedUser.Address,
+                        WorkBookNumber = SelectedUser.WorkBookNumber,
+                        BirthDate = SelectedUser.BirthDate,
+                        Photo = SelectedUser.Photo
+                    },
                     Owner = window,
                     WindowStartupLocation = WindowStartupLocation.Manual,
                 };

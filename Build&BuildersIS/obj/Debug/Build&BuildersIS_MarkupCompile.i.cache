@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\App.xaml
-81645016022
+9-831765053
 141277719
-341931869181
+36352759992
 13-1310406943
-Views\CatalogWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\MaterialWindow.xaml;Views\MessageBoxWindow.xaml;Views\PersonalFileWindow.xaml;Views\RegisterWindow.xaml;Views\WindowStyle.xaml;
+Views\CatalogWindow.xaml;Views\ChangePasswordWindow.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\MaterialWindow.xaml;Views\MessageBoxWindow.xaml;Views\PersonalFileWindow.xaml;Views\RegisterWindow.xaml;Views\WindowStyle.xaml;
 
 False
 

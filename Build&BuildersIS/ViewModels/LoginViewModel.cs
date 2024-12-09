@@ -88,10 +88,11 @@ namespace Build_BuildersIS.ViewModels
                         WindowStartupLocation = WindowStartupLocation.CenterOwner
                     };
                     window.Hide();
-                    message.ShowDialog();
+
                     var mainWindow = new MainWindow(Username, userRole);
                     mainWindow.Closed += (sender, e) => WindowClosed(window);
                     mainWindow.Show();
+                    message.ShowDialog();
                 }
                 else
                 {
