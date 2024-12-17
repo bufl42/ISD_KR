@@ -98,3 +98,7 @@ C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\RequestWindow.g.c
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\RequestWindow.baml
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\TaskWindow.g.cs
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\TaskWindow.baml
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\TaskDescriptionWindow.g.cs
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\TaskDescriptionWindow.baml
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\TaskCompletionReportWindow.g.cs
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\TaskCompletionReportWindow.baml

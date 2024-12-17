@@ -73,6 +73,8 @@
     <Compile Include="ViewModels\MaterialViewModel.cs" />
     <Compile Include="ViewModels\PersonalFileViewModel.cs" />
     <Compile Include="ViewModels\RequestViewModel.cs" />
+    <Compile Include="ViewModels\TaskCompletionReportViewModel.cs" />
+    <Compile Include="ViewModels\TaskDescriptionViewModel.cs" />
     <Compile Include="ViewModels\TaskViewModel.cs" />
     <Compile Include="Views\ObjectWindow.xaml.cs">
       <DependentUpon>ObjectWindow.xaml</DependentUpon>
@@ -103,6 +105,12 @@
     </Compile>
     <Compile Include="Views\RequestWindow.xaml.cs">
       <DependentUpon>RequestWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskCompletionReportWindow.xaml.cs">
+      <DependentUpon>TaskCompletionReportWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TaskDescriptionWindow.xaml.cs">
+      <DependentUpon>TaskDescriptionWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TaskWindow.xaml.cs">
       <DependentUpon>TaskWindow.xaml</DependentUpon>
@@ -167,6 +175,14 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\RequestWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaskCompletionReportWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TaskDescriptionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

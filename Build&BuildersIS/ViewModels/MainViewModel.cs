@@ -30,6 +30,7 @@ namespace Build_BuildersIS.ViewModels
         public ObservableCollection<User> Users;
         private byte[] _userPhoto;
         private Project _selectedProject;
+        private WorkerTask _selectedTask;
 
         public MaterialRequest SelectedRequest
         {
@@ -37,6 +38,15 @@ namespace Build_BuildersIS.ViewModels
             set
             {
                 _selectedRequest = value;
+                OnPropertyChanged();
+            }
+        }
+        public WorkerTask SelectedTask
+        {
+            get => _selectedTask;
+            set
+            {
+                _selectedTask = value;
                 OnPropertyChanged();
             }
         }
@@ -112,6 +122,8 @@ namespace Build_BuildersIS.ViewModels
         public ICommand CreateRequestCommand => new RelayCommand(param => CreateRequest(param as Window), CanEditProject);
         public ICommand CreateTaskCommand => new RelayCommand(param => CreateTask(param as Window), CanEditProject);
         public ICommand DeleteProjectCommand => new RelayCommand(param => DeleteProject(param as Window), CanEditProject);
+        public ICommand OpenTaskDescriptionCommand => new RelayCommand(param => OpenTaskDescription(param as Window), CanOpenDescription);
+        public ICommand CompliteTaskCommand => new RelayCommand(param => CompliteTask(param as Window), CanOpenDescription);
         public ICommand OpenPersonalFileCommand => new RelayCommand(param => OpenPersonalFile(param as Window,Username));
         public ICommand OpenEditPersonalFileCommand => new RelayCommand(param => OpenEditPersonalFile(param as Window), CanEditUser);
         public ICommand ApproveRequestCommand => new RelayCommand(param => ApproveRequest(param as  Window),CanApproveOrDeny);
@@ -305,8 +317,8 @@ namespace Build_BuildersIS.ViewModels
                         TaskDescription = row["description"]?.ToString() ?? "Описание отсутствует",
                         TaskStatus = row["status"]?.ToString() ?? "Не указан",
                         Deadline = Convert.ToDateTime(row["deadline"]),
-                        ObjectAddress = row["ProjectAddress"]?.ToString() ?? "Адрес отсутствует",
-                        ObjectImage = row["ProjectImage"] as byte[]
+                        ProjectAddress = row["ProjectAddress"]?.ToString() ?? "Адрес отсутствует",
+                        ProjectImage = row["ProjectImage"] as byte[]
                     });
                 }
             }
@@ -455,16 +467,18 @@ namespace Build_BuildersIS.ViewModels
                     MenuItems.Add(new MenuItem { Title = "Отклонить запрос", Command = DenyRequestCommand });
                     break;
 
-                //case "Менеджер":
-                //    MenuItems.Add(new MenuItem { Title = "Создать новый проект", Command = CreateProjectCommand });
-                //    MenuItems.Add(new MenuItem { Title = "Запрос на материалы", Command = RequestMaterialsCommand });
-                //    // Добавьте другие кнопки для Менеджера при необходимости
-                //    break;
+                case "MNG":
+                    MenuItems.Add(new MenuItem { Title = "Новый проект", Command = OpenNewProjectCommand });
+                    MenuItems.Add(new MenuItem { Title = "Редактировать", Command = OpenEditProjectCommand });
+                    MenuItems.Add(new MenuItem { Title = "Удалить", Command = DeleteProjectCommand });
+                    MenuItems.Add(new MenuItem { Title = "Запрос на материалы", Command = CreateRequestCommand });
+                    MenuItems.Add(new MenuItem { Title = "Создать задачу", Command = CreateTaskCommand });
+                    break;
 
-                //case "Рабочий":
-                //    MenuItems.Add(new MenuItem { Title = "Просмотр задач", Command = ViewTasksCommand });
-                //    // Добавьте другие кнопки для Рабочего при необходимости
-                //    break;
+                case "WRK":
+                    MenuItems.Add(new MenuItem { Title = "Описание задачи", Command = OpenTaskDescriptionCommand });
+                    MenuItems.Add(new MenuItem { Title = "Завершить задачу", Command = CompliteTaskCommand });
+                    break;
 
                 case "ADM":
                     MenuItems.Add(new MenuItem { Title = "Редактирование", Command = OpenEditPersonalFileCommand });
@@ -581,6 +595,75 @@ namespace Build_BuildersIS.ViewModels
             Projects.Clear();
             LoadProjects();
         }
+
+        private void OpenTaskDescription(Window window)
+        {
+            try
+            {
+                var selectedTask = SelectedTask;
+
+                var overlay = window.FindName("Overlay") as UIElement;
+                if (overlay != null)
+                {
+                    overlay.Visibility = Visibility.Visible;
+                }
+
+                var taskDescriptionWindow = new TaskDescriptionWindow()
+                {
+                    DataContext = new TaskDescriptionViewModel
+                    {
+                        TaskID = SelectedTask.TaskID
+                    },
+                    Owner = window,
+                    WindowStartupLocation = WindowStartupLocation.Manual
+                };
+
+
+                taskDescriptionWindow.Left = window.Left + (window.Width - taskDescriptionWindow.Width) / 2;
+                taskDescriptionWindow.Top = window.Top + (window.Height - taskDescriptionWindow.Height) / 2;
+
+                taskDescriptionWindow.Closed += (sender, e) => WindowClosed(window);
+                taskDescriptionWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private void CompliteTask(Window window)
+        {
+            try
+            {
+                var selectedTask = SelectedTask;
+
+                var overlay = window.FindName("Overlay") as UIElement;
+                if (overlay != null)
+                {
+                    overlay.Visibility = Visibility.Visible;
+                }
+
+                var taskReportWindow = new TaskCompletionReportWindow()
+                {
+                    DataContext = new TaskCompletionReportViewModel
+                    {
+                        TaskID = SelectedTask.TaskID
+                    },
+                    Owner = window,
+                    WindowStartupLocation = WindowStartupLocation.Manual
+                };
+
+
+                taskReportWindow.Left = window.Left + (window.Width - taskReportWindow.Width) / 2;
+                taskReportWindow.Top = window.Top + (window.Height - taskReportWindow.Height) / 2;
+
+                taskReportWindow.Closed += (sender, e) => WindowClosed(window);
+                taskReportWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void CreateRequest(Window window)
         {
             try
@@ -642,7 +725,7 @@ namespace Build_BuildersIS.ViewModels
                 {
                     DataContext = new TaskViewModel
                     {
-                        UserID = userId,
+                        CreatorID = userId,
                         ProjectID = SelectedProject.ProjectID,
                         ProjectImage = SelectedProject.ProjectImage,
                         ProjectName = SelectedProject.ProjectName,
@@ -998,6 +1081,10 @@ namespace Build_BuildersIS.ViewModels
         {
             SearchQuery = string.Empty;
             FilterElemets();
+        }
+        private bool CanOpenDescription(object param)
+        {
+            return SelectedTask != null;
         }
     }
 }

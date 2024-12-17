@@ -3,39 +3,79 @@
   "WorkspaceRootPath": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\viewmodels\\taskcompletionreportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\taskcompletionreportviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\viewmodels\\taskviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\taskviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\taskwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\taskwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\taskcompletionreportwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\taskcompletionreportwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\projectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\viewmodels\\taskviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\taskviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\viewmodels\\taskdescriptionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\taskdescriptionviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\taskwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\taskwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\registerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\registerwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\taskcompletionreportwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\taskcompletionreportwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\taskdescriptionwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\taskdescriptionwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\objectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\objectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\viewmodels\\projectwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\projectwindowviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\projectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\projectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\taskwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\viewmodels\\requestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\requestviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\models\\workertask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:models\\workertask.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\taskwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\taskwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\requestwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\requestwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\requestwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\viewmodels\\materialviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\viewmodels\\materialviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\materialviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -43,15 +83,11 @@
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:models\\materialrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\objectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\objectwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\viewmodels\\objectviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\viewmodels\\objectviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\objectviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\viewmodels\\personalfileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\viewmodels\\personalfileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:viewmodels\\personalfileviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -63,11 +99,11 @@
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\catalogwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\objectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\objectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\objectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\materialwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\materialwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\materialwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -75,7 +111,7 @@
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\materialwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\models\\objectlisttostringconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\models\\objectlisttostringconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:models\\objectlisttostringconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -83,19 +119,19 @@
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:models\\objectitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:models\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\models\\projectobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\models\\projectobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:models\\projectobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\projectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\projectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\projectwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|c:\\users\\denbu\\desktop\\isd_kr\\build\u0026buildersis\\views\\personalfilewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\views\\personalfilewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9FED94BB-6836-424A-AEE0-D58C5DA2FC23}|Build\u0026BuildersIS.csproj|solutionrelative:views\\personalfilewindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -106,24 +142,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Views\\TaskWindow.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\TaskWindow.xaml.cs",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskWindow.xaml.cs",
-              "RelativeToolTip": "Views\\TaskWindow.xaml.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAtwBgAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "TaskViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\TaskViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TaskViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\TaskViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TaskViewModel.cs",
+              "ViewState": "AgIAAKIAAAAAAAAAAAAgwLoAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T22:56:58.183Z",
+              "WhenOpened": "2024-12-17T00:36:01.273Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "TaskWindow.xaml",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskWindow.xaml",
               "RelativeDocumentMoniker": "Views\\TaskWindow.xaml",
@@ -136,56 +172,79 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "RequestWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\RequestWindow.xaml",
-              "RelativeDocumentMoniker": "Views\\RequestWindow.xaml",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\RequestWindow.xaml",
-              "RelativeToolTip": "Views\\RequestWindow.xaml",
+              "Title": "RegisterWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\RegisterWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\RegisterWindow.xaml",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\RegisterWindow.xaml",
+              "RelativeToolTip": "Views\\RegisterWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T20:30:29.54Z",
+              "WhenOpened": "2024-12-17T01:29:25.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TaskCompletionReportViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\TaskCompletionReportViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TaskCompletionReportViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\TaskCompletionReportViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TaskCompletionReportViewModel.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAowFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T01:28:50.552Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "MaterialViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\MaterialViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\MaterialViewModel.cs",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\MaterialViewModel.cs",
-              "RelativeToolTip": "ViewModels\\MaterialViewModel.cs",
-              "ViewState": "AgIAAE8AAAAAAAAAAAAYwD0AAAAwAAAAAAAAAA==",
+              "Title": "TaskCompletionReportWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskCompletionReportWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\TaskCompletionReportWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskCompletionReportWindow.xaml.cs",
+              "RelativeToolTip": "Views\\TaskCompletionReportWindow.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T17:41:56.592Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T01:28:17.946Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProjectWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\ProjectWindow.xaml",
-              "RelativeDocumentMoniker": "Views\\ProjectWindow.xaml",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\ProjectWindow.xaml",
-              "RelativeToolTip": "Views\\ProjectWindow.xaml",
+              "DocumentIndex": 1,
+              "Title": "TaskCompletionReportWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskCompletionReportWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\TaskCompletionReportWindow.xaml",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskCompletionReportWindow.xaml",
+              "RelativeToolTip": "Views\\TaskCompletionReportWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T12:31:19.279Z",
+              "WhenOpened": "2024-12-17T01:27:30.473Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "ObjectViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\ObjectViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\ObjectViewModel.cs",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\ObjectViewModel.cs",
-              "RelativeToolTip": "ViewModels\\ObjectViewModel.cs",
-              "ViewState": "AgIAAE4AAAAAAAAAAAAQwGIAAAAjAAAAAAAAAA==",
+              "DocumentIndex": 12,
+              "Title": "ProjectWindowViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\ProjectWindowViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ProjectWindowViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\ProjectWindowViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ProjectWindowViewModel.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAQwCoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T18:02:13.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-17T00:36:38.586Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MainViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\MainViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MainViewModel.cs",
+              "ViewState": "AgIAALACAAAAAAAAAAAswNcCAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T00:08:34.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "User.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -198,15 +257,49 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "PersonalFileViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\PersonalFileViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\PersonalFileViewModel.cs",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\PersonalFileViewModel.cs",
-              "RelativeToolTip": "ViewModels\\PersonalFileViewModel.cs",
-              "ViewState": "AgIAANkAAAAAAAAAAAAIwNMAAAAIAAAAAAAAAA==",
+              "DocumentIndex": 14,
+              "Title": "RequestViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\RequestViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\RequestViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\RequestViewModel.cs",
+              "RelativeToolTip": "ViewModels\\RequestViewModel.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAApwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T13:41:44.183Z",
+              "WhenOpened": "2024-12-17T00:47:34.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\MainWindow.xaml",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\MainWindow.xaml",
+              "RelativeToolTip": "Views\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-17T00:50:00.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "WorkerTask.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\WorkerTask.cs",
+              "RelativeDocumentMoniker": "Models\\WorkerTask.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\WorkerTask.cs",
+              "RelativeToolTip": "Models\\WorkerTask.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T00:20:08.374Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TaskDescriptionWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskDescriptionWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\TaskDescriptionWindow.xaml",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskDescriptionWindow.xaml",
+              "RelativeToolTip": "Views\\TaskDescriptionWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-17T00:15:06.157Z",
               "EditorCaption": ""
             },
             {
@@ -218,12 +311,81 @@
               "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\ObjectWindow.xaml",
               "RelativeToolTip": "Views\\ObjectWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T18:02:40.195Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T18:02:40.195Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 18,
+              "Title": "MaterialViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\MaterialViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\MaterialViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\MaterialViewModel.cs",
+              "RelativeToolTip": "ViewModels\\MaterialViewModel.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAYwD0AAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T17:41:56.592Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "RequestWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\RequestWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\RequestWindow.xaml",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\RequestWindow.xaml",
+              "RelativeToolTip": "Views\\RequestWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T20:30:29.54Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Views\\TaskWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\TaskWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\TaskWindow.xaml.cs",
+              "RelativeToolTip": "Views\\TaskWindow.xaml.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAtwBgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T22:56:58.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "ObjectViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\ObjectViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\ObjectViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\ObjectViewModel.cs",
+              "RelativeToolTip": "ViewModels\\ObjectViewModel.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAQwGIAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T18:02:13.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "PersonalFileViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\PersonalFileViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\PersonalFileViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\PersonalFileViewModel.cs",
+              "RelativeToolTip": "ViewModels\\PersonalFileViewModel.cs",
+              "ViewState": "AgIAANkAAAAAAAAAAAAIwNMAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-16T13:41:44.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ProjectWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\ProjectWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\ProjectWindow.xaml",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\ProjectWindow.xaml",
+              "RelativeToolTip": "Views\\ProjectWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-12-16T12:31:19.279Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "MaterialRequest.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\MaterialRequest.cs",
               "RelativeDocumentMoniker": "Models\\MaterialRequest.cs",
@@ -231,12 +393,11 @@
               "RelativeToolTip": "Models\\MaterialRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T21:48:24.686Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T21:48:24.686Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 22,
               "Title": "MaterialItem.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\MaterialItem.cs",
               "RelativeDocumentMoniker": "Models\\MaterialItem.cs",
@@ -244,24 +405,22 @@
               "RelativeToolTip": "Models\\MaterialItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-09T22:09:23.051Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-09T22:09:23.051Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 23,
               "Title": "CatalogWindow.xaml",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\CatalogWindow.xaml",
               "RelativeDocumentMoniker": "Views\\CatalogWindow.xaml",
               "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\CatalogWindow.xaml",
               "RelativeToolTip": "Views\\CatalogWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T11:52:48.738Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T11:52:48.738Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 30,
               "Title": "ProjectObject.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\ProjectObject.cs",
               "RelativeDocumentMoniker": "Models\\ProjectObject.cs",
@@ -269,24 +428,22 @@
               "RelativeToolTip": "Models\\ProjectObject.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T14:05:31Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T14:05:31Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 26,
               "Title": "MaterialWindow.xaml",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\MaterialWindow.xaml",
               "RelativeDocumentMoniker": "Views\\MaterialWindow.xaml",
               "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\MaterialWindow.xaml",
               "RelativeToolTip": "Views\\MaterialWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T12:26:37.498Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T12:26:37.498Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 31,
               "Title": "ProjectWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\ProjectWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\ProjectWindow.xaml.cs",
@@ -294,12 +451,11 @@
               "RelativeToolTip": "Views\\ProjectWindow.xaml.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAQwCkAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T13:40:21.724Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T13:40:21.724Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 28,
               "Title": "ObjectItem.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\ObjectItem.cs",
               "RelativeDocumentMoniker": "Models\\ObjectItem.cs",
@@ -307,12 +463,11 @@
               "RelativeToolTip": "Models\\ObjectItem.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAwwDMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T12:33:30.833Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T12:33:30.833Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 32,
               "Title": "PersonalFileWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\PersonalFileWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\PersonalFileWindow.xaml.cs",
@@ -320,12 +475,11 @@
               "RelativeToolTip": "Views\\PersonalFileWindow.xaml.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T13:39:04.627Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T13:39:04.627Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 24,
               "Title": "ObjectWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\ObjectWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\ObjectWindow.xaml.cs",
@@ -333,12 +487,11 @@
               "RelativeToolTip": "Views\\ObjectWindow.xaml.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAqwC0AAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T18:04:20.865Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T18:04:20.865Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 25,
               "Title": "MaterialWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\MaterialWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\MaterialWindow.xaml.cs",
@@ -346,12 +499,11 @@
               "RelativeToolTip": "Views\\MaterialWindow.xaml.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAQwD4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T18:04:12.185Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T18:04:12.185Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 27,
               "Title": "ObjectListToStringConverter.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\ObjectListToStringConverter.cs",
               "RelativeDocumentMoniker": "Models\\ObjectListToStringConverter.cs",
@@ -359,12 +511,11 @@
               "RelativeToolTip": "Models\\ObjectListToStringConverter.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T17:06:23.576Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T17:06:23.576Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 29,
               "Title": "Project.cs",
               "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Models\\Project.cs",
               "RelativeDocumentMoniker": "Models\\Project.cs",
@@ -372,8 +523,7 @@
               "RelativeToolTip": "Models\\Project.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T14:01:35.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-16T14:01:35.699Z"
             }
           ]
         }
@@ -383,13 +533,13 @@
       "Orientation": 0,
       "VerticalTabListWidth": 256,
       "FloatingWindowState": {
-        "Id": "2574e087-605e-4e43-8c04-247b10ff643d",
+        "Id": "00cd9d17-9fd4-427a-be23-61ffd671ab6e",
         "Display": 1,
-        "X": 418,
-        "Y": 194,
+        "X": 77,
+        "Y": 506,
         "Width": 1588,
         "Height": 799,
-        "WindowState": 0
+        "WindowState": 2
       },
       "DocumentGroups": [
         {
@@ -398,82 +548,15 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TaskViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\TaskViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\TaskViewModel.cs",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\TaskViewModel.cs",
-              "RelativeToolTip": "ViewModels\\TaskViewModel.cs",
-              "ViewState": "AgIAAJYAAAAAAAAAAAAhwLMAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "TaskDescriptionViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\TaskDescriptionViewModel.cs",
+              "RelativeDocumentMoniker": "ViewModels\\TaskDescriptionViewModel.cs",
+              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\TaskDescriptionViewModel.cs",
+              "RelativeToolTip": "ViewModels\\TaskDescriptionViewModel.cs",
+              "ViewState": "AgIAAJMAAAAAAAAAAAAUwKsAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T22:54:43.848Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "65d42e98-caad-4eda-8e92-f20395775139",
-        "Display": 1,
-        "X": 929,
-        "Y": 388,
-        "Width": 1563,
-        "Height": 799,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "Views\\MainWindow.xaml",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\Views\\MainWindow.xaml",
-              "RelativeToolTip": "Views\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-12-16T13:52:24.531Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "08be22d1-b9a7-4522-9b1f-b6626d51e7fb",
-        "Display": 1,
-        "X": 1820,
-        "Y": 381,
-        "Width": 1588,
-        "Height": 799,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "ViewModels\\MainViewModel.cs",
-              "ToolTip": "C:\\Users\\denbu\\Desktop\\ISD_KR\\Build\u0026BuildersIS\\ViewModels\\MainViewModel.cs",
-              "RelativeToolTip": "ViewModels\\MainViewModel.cs",
-              "ViewState": "AgIAAHcDAAAAAAAAAAASwBwBAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-16T13:51:25.752Z",
+              "WhenOpened": "2024-12-17T00:16:11.375Z",
               "EditorCaption": ""
             }
           ]

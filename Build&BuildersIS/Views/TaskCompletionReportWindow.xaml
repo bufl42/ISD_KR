@@ -1,0 +1,87 @@
+﻿<Window x:Class="Build_BuildersIS.Views.TaskCompletionReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ms="clr-namespace:Build_BuildersIS.Models"
+        xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels"
+        mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        WindowStartupLocation="CenterScreen" Title="Отчет о выполненной задаче" Height="620" Width="1000">
+
+    <Window.DataContext>
+        <vm:TaskCompletionReportViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <ms:ByteArrayToImageConverter x:Key="ByteArrayToImageConverter"/>
+    </Window.Resources>
+
+    <Border Background="#FF484848" CornerRadius="15" BorderBrush="Black" BorderThickness="1" Margin="0">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="52"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <!-- Заголовок окна -->
+            <Label Content="Отчет о выполненной задаче" Margin="10,5,10,0" FontSize="20" FontFamily="Segoe UI Black" Foreground="#FFB8B8B8"/>
+
+            <!-- Кнопка закрытия -->
+            <Button Command="{Binding CloseCommand}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}" 
+                Style="{StaticResource CloseButtonStyle}" Margin="963,18,10,8" >
+                <Button.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/Resources/window-close.png" Stretch="Uniform" />
+                </Button.Background>
+            </Button>
+
+            <!-- Основная информация -->
+            <StackPanel Grid.Row="1" Margin="20,20,20,20">
+
+                <!-- Номер задачи -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Label Content="Отчет о выполненной задаче номер:" Foreground="#FFB8B8B8" FontSize="16" Width="284"/>
+                    <TextBlock Text="{Binding TaskID}" Foreground="#FFB8B8B8" FontSize="16" VerticalAlignment="Center" Width="90"/>
+                </StackPanel>
+
+                <!-- Название проекта -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Label Content="Название проекта:" Foreground="#FFB8B8B8" FontSize="16" Width="151"/>
+                    <TextBlock Text="{Binding ProjectName}" Foreground="#FFB8B8B8" FontSize="16" VerticalAlignment="Center" Width="800" Height="29"/>
+                </StackPanel>
+
+                <!-- Адрес проекта -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10"/>
+
+                <!-- Описание задачи -->
+                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                    <Label Content="Описание задачи:" Foreground="#FFB8B8B8" FontSize="16"/>
+                    <TextBox Text="{Binding TaskDescription}" Foreground="#FFB8B8B8" FontSize="16" Height="100" Margin="0,5" IsEnabled="False" TextWrapping="Wrap" Background="Transparent"/>
+                </StackPanel>
+
+                <!-- Ответственный за постановку задачи -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10" RenderTransformOrigin="0.501,0.508">
+                    <Label Content="Ответственный за постановку задачи:" Foreground="#FFB8B8B8" FontSize="16" Width="295"/>
+                    <TextBlock Text="{Binding TaskCreator}" Foreground="#FFB8B8B8" FontSize="16" VerticalAlignment="Center" Width="658"/>
+                </StackPanel>
+
+                <!-- Ответственные за выполнение задачи -->
+                <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                    <Label Content="Ответственные за выполнение задачи:" Foreground="#FFB8B8B8" FontSize="16"/>
+                    <TextBox Text="{Binding AssignedWorkers}" Foreground="#FFB8B8B8" FontSize="16" Height="100" Margin="0,5" IsEnabled="False" TextWrapping="Wrap" Background="Transparent"/>
+                </StackPanel>
+
+                <!-- Дата выполнения -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Label Content="Дата выполнения:" Foreground="#FFB8B8B8" FontSize="16" Width="250"/>
+                    <TextBlock Text="{Binding CompletionDate}" Foreground="#FFB8B8B8" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <!-- Крайний срок -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Label Content="Крайний срок:" Foreground="#FFB8B8B8" FontSize="16" Width="250"/>
+                    <TextBlock Text="{Binding Deadline}" Foreground="#FFB8B8B8" FontSize="16" VerticalAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

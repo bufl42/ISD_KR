@@ -1,5 +1,6 @@
 ﻿
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\App.xaml;;
+FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\ObjectWindow.xaml;;
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\ProjectWindow.xaml;;
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\CatalogWindow.xaml;;
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\ChangePasswordWindow.xaml;;
@@ -9,8 +10,9 @@ FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\MaterialWindow.xaml;;
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\MessageBoxWindow.xaml;;
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\PersonalFileWindow.xaml;;
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\RegisterWindow.xaml;;
-FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\WindowStyle.xaml;;
-FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\ObjectWindow.xaml;;
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\RequestWindow.xaml;;
+FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\TaskCompletionReportWindow.xaml;;
+FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\TaskDescriptionWindow.xaml;;
 FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\TaskWindow.xaml;;
+FC:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\Views\WindowStyle.xaml;;
 

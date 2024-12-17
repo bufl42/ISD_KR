@@ -16,6 +16,7 @@ namespace Build_BuildersIS.ViewModels
     {
         // Поля
         private int _userID;
+        private int _creatorID;
         private int _projectID;
         private string _projectName;
         private byte[] _projectImage;
@@ -36,6 +37,11 @@ namespace Build_BuildersIS.ViewModels
         {
             get => _userID;
             set { _userID = value; OnPropertyChanged(); }
+        }
+        public int CreatorID
+        {
+            get => _creatorID;
+            set { _creatorID = value; OnPropertyChanged(); }
         }
         public string ProjectName
         {
@@ -169,15 +175,16 @@ namespace Build_BuildersIS.ViewModels
             {
                 // Вставляем задачу
                 string insertTaskQuery = @"
-                INSERT INTO Task (description, status, deadline, project_id) 
+                INSERT INTO Task (description, status, deadline, project_id, creator_id) 
                 OUTPUT INSERTED.task_id
-                VALUES (@description, 'NEW', @deadline, @project_id)";
+                VALUES (@description, 'PRO', @deadline, @project_id, @creator_id)";
 
                 var taskParameters = new Dictionary<string, object>
                 {
                     { "@description", TaskDescription },
                     { "@deadline", Deadline.Value },
-                    {"@project_id", ProjectID }
+                    {"@project_id", ProjectID },
+                    {"@creator_id", CreatorID }
                 };
 
                 int taskId = Convert.ToInt32(DatabaseHelper.ExecuteScalar(insertTaskQuery, taskParameters));

@@ -31,8 +31,8 @@
 
             <Grid Margin="0,5,0,0" Grid.Row="1">
                 <Label Content="Название" Margin="146,10,223,206" Foreground="#FFB8B8B8" FontSize="17"/>
-                <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="146,44,45,181"  Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
-                <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Margin="10,138,10,47" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
+                <TextBox Name="NameLable" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Margin="146,44,45,181"  Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
+                <TextBox Name="DescriptionLable" Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}" Margin="10,138,10,47" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
 
                 <!-- Поле для изображения с поддержкой Drag and Drop -->
                 <Border BorderBrush="Gray" BorderThickness="1" Margin="10,3,314,118" AllowDrop="True" 

@@ -9,10 +9,10 @@ namespace Build_BuildersIS.Models
     public class WorkerTask
     {
         public int TaskID { get; set; }
-        public string ObjectAddress { get; set; }
+        public string ProjectAddress { get; set; }
         public string TaskDescription { get; set; }
         public string TaskStatus { get; set; }
         public DateTime Deadline { get; set; }
-        public byte[] ObjectImage { get; set; }
+        public byte[] ProjectImage { get; set; }
     }
 }
