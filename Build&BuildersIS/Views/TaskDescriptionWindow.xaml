@@ -107,7 +107,7 @@
                             <DataTemplate>
                                 <Grid Height="80" Width="370">
                                     <Image Source="{Binding Photo, Converter={StaticResource ByteArrayToImageConverter}}" Width="75" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                                    <TextBlock Text="{Binding Username}" FontSize="15" VerticalAlignment="Center" Margin="103,0,0,0"/>
+                                    <TextBlock Text="{Binding DisplayName}" FontSize="15" VerticalAlignment="Center" Margin="103,0,0,0"/>
                                 </Grid>
                             </DataTemplate>
                         </ListBox.ItemTemplate>

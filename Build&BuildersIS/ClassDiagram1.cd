@@ -1,0 +1,400 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Build_BuildersIS.App" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.LoginWindow" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Views\LoginWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.MainWindow" BaseTypeListCollapsed="true">
+    <Position X="29" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Views\MainWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.RegisterWindow" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Views\RegisterWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Entarence.Authentication" Collapsed="true">
+    <Position X="26.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Authentication.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Entarence.HashFunc" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\HashFunc.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.ByteArrayToImageConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ByteArrayToImageConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Models.DatabaseConfig" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>Models\DatabaseConfig.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.EmailChecker">
+    <Position X="26.75" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Models\EmailChecker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.MaterialItem">
+    <Position X="4.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAAAAAABAAAIAAAAIQAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Models\MaterialItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.MaterialRequest" Collapsed="true">
+    <Position X="31.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAQAEQAAAAAQAAAAAAAAABAAAAAAAAAAAAAAAQAA=</HashCode>
+      <FileName>Models\MaterialRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.MenuItem">
+    <Position X="29" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.ObjectItem">
+    <Position X="8.75" Y="8" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAEQAAAAIQABAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ObjectItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.ObjectListToStringConverter" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ObjectListToStringConverter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Models.Project" Collapsed="true">
+    <Position X="20" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAABAACAAAAAAgBAAAAAAAAABAAEAAAAA=</HashCode>
+      <FileName>Models\Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.ProjectObject">
+    <Position X="20" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAIAAAABAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\ProjectObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.Registration" Collapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EQAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Registration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.RoleDescription">
+    <Position X="29" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\RoleDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Models.User" BaseTypeListCollapsed="true">
+    <Position X="26.75" Y="7.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAEUAAACAAAKQAMQAQAAwAgAAABAgCAEIAAQAEAAg=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Models.WorkerTask">
+    <Position X="15.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAMQAAAAAAAAAAAAAAAAAgAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Models\WorkerTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.DataBase.DatabaseHelper" Collapsed="true">
+    <Position X="22" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DatabaseHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Properties.Resources" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.BaseViewModel" Collapsed="true">
+    <Position X="17.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAEAAAAAAAAAQAAAIAAAAEAAgAEAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\BaseViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.CatalogViewModel">
+    <Position X="17.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>MEAkAAABAgAAiBAAAAABAAAAAgAQABAAghAAAAgABAA=</HashCode>
+      <FileName>ViewModels\CatalogViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.ChangePasswordViewModel">
+    <Position X="22.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAEAAAABCAAAAAAAEAAAEIAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\ChangePasswordViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.LoginViewModel">
+    <Position X="26.75" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAIEAAAIQAAAAAAAAAAAACCAAIQAACAAAA=</HashCode>
+      <FileName>ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.MainViewModel">
+    <Position X="29" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>oEAAGWAEGmIIxJkgAUMbQgIQBkAYBAjAloMigBQIAQg=</HashCode>
+      <FileName>ViewModels\MainViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.MaterialViewModel">
+    <Position X="4.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAABBAABIAQAAISAAAAAABIAAACAgAAAAQI=</HashCode>
+      <FileName>ViewModels\MaterialViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.ObjectViewModel">
+    <Position X="8.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIEAEAAAhAAAEQCAAAAQAAAAAAAIAAAAAAAAEAAA=</HashCode>
+      <FileName>ViewModels\ObjectViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.PersonalFileViewModel">
+    <Position X="13.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>BAsAAEAAABJJgSAAEQEQAEwAgBgAAgACAEABAEQEAAg=</HashCode>
+      <FileName>ViewModels\PersonalFileViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.ProjectWindowViewModel">
+    <Position X="20" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAEggFUCAFIBQCiAICCABAMQIAAgBAAABICCEIAQA=</HashCode>
+      <FileName>ViewModels\ProjectWindowViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.RegisterViewModel">
+    <Position X="24.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAEAAAAQCAAAAAAAABAACCAAIAAAAAIAE=</HashCode>
+      <FileName>ViewModels\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.RelayCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEACAAQAAECAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\RelayCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.RequestViewModel">
+    <Position X="31.25" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACEEAARUAAgCAAhCAAAAggQBQgRAAAAEABagAAIAAA=</HashCode>
+      <FileName>ViewModels\RequestViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.TaskCompletionReportViewModel">
+    <Position X="6.5" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAABMIAACgBhACAAAAACAgAgAAAAAAAEAIACIEAA=</HashCode>
+      <FileName>ViewModels\TaskCompletionReportViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.TaskDescriptionViewModel">
+    <Position X="11" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAgBIYAAAgAwACAAACABAkQoAAAAAAAEACACIAAA=</HashCode>
+      <FileName>ViewModels\TaskDescriptionViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.ViewModels.TaskViewModel">
+    <Position X="15.5" Y="1.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AACBMABIYAQAiEACCAAAIAgAhQhIAABAACEAgACIAAE=</HashCode>
+      <FileName>ViewModels\TaskViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Build_BuildersIS.Views.CatalogWindow" BaseTypeListCollapsed="true">
+    <Position X="17.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\CatalogWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.ChangePasswordWindow" BaseTypeListCollapsed="true">
+    <Position X="22.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ChangePasswordWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.MaterialWindow" BaseTypeListCollapsed="true">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MaterialWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.ObjectWindow" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ObjectWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.PersonalFileWindow" BaseTypeListCollapsed="true">
+    <Position X="13.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\PersonalFileWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.ProjectWindow" BaseTypeListCollapsed="true">
+    <Position X="20" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\ProjectWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.RequestWindow" BaseTypeListCollapsed="true">
+    <Position X="31.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\RequestWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.TaskCompletionReportWindow" BaseTypeListCollapsed="true">
+    <Position X="6.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\TaskCompletionReportWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.TaskDescriptionWindow" BaseTypeListCollapsed="true">
+    <Position X="11" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\TaskDescriptionWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Build_BuildersIS.Views.TaskWindow" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\TaskWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LibraryIS.MessageBoxWindow" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="28.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\MessageBoxWindow.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

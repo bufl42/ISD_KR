@@ -55,10 +55,11 @@
 
                 <Border BorderBrush="Gray" BorderThickness="1" Margin="20,10,318,179" AllowDrop="True" Drop="ImageDrop" PreviewDragOver="ImagePreviewDragOver" Width="180" Height="180" >
                     <Grid>
+                        <Image Source="{Binding PhotoPreview, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill"/>
                         <TextBlock Text="Перетащите" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Width="104" Height="40" Margin="0,24,0,0"/>
                         <TextBlock Text="изображение" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="116" Height="40"/>
                         <TextBlock Text="сюда" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Width="50" Height="40" Margin="0,114,0,0"/>
-                        <Image Source="{Binding PhotoPreview, Converter={StaticResource ByteArrayToImageConverter}}" Stretch="UniformToFill"/>
+                        
                     </Grid>
                 </Border>
 
