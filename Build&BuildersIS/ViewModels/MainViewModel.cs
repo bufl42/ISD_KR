@@ -28,6 +28,9 @@ namespace Build_BuildersIS.ViewModels
         private ObservableCollection<MaterialRequest> _filteredrequsts;
         private string _searchQuery;
         public ObservableCollection<User> Users;
+        private byte[] _userPhoto;
+        private Project _selectedProject;
+
         public MaterialRequest SelectedRequest
         {
             get => _selectedRequest;
@@ -37,6 +40,17 @@ namespace Build_BuildersIS.ViewModels
                 OnPropertyChanged();
             }
         }
+
+        public Project SelectedProject
+        {
+            get => _selectedProject;
+            set
+            {
+                _selectedProject = value;
+                OnPropertyChanged();
+            }
+        }
+
         public User SelectedUser
         {
             get => _selectedUser;
@@ -93,6 +107,11 @@ namespace Build_BuildersIS.ViewModels
         public ObservableCollection<MenuItem> MenuItems { get; set; } = new ObservableCollection<MenuItem>();
 
         public ICommand OpenCatalogCommand => new RelayCommand(param => OpenCatalog(param as Window));
+        public ICommand OpenNewProjectCommand => new RelayCommand(param => OpenNewProject(param as Window));
+        public ICommand OpenEditProjectCommand => new RelayCommand(param => OpenEditProject(param as Window),CanEditProject);
+        public ICommand CreateRequestCommand => new RelayCommand(param => CreateRequest(param as Window), CanEditProject);
+        public ICommand CreateTaskCommand => new RelayCommand(param => CreateTask(param as Window), CanEditProject);
+        public ICommand DeleteProjectCommand => new RelayCommand(param => DeleteProject(param as Window), CanEditProject);
         public ICommand OpenPersonalFileCommand => new RelayCommand(param => OpenPersonalFile(param as Window,Username));
         public ICommand OpenEditPersonalFileCommand => new RelayCommand(param => OpenEditPersonalFile(param as Window), CanEditUser);
         public ICommand ApproveRequestCommand => new RelayCommand(param => ApproveRequest(param as  Window),CanApproveOrDeny);
@@ -174,22 +193,77 @@ namespace Build_BuildersIS.ViewModels
                 return Username;
             }
         }
+        public byte[] ReturnUserPhoto
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Username)) return null;
+
+                try
+                {
+                    string userQuery = "SELECT user_id FROM Users WHERE name = @UserName";
+                    var userParams = new Dictionary<string, object> { { "@UserName", Username } };
+                    var userResult = DatabaseHelper.ExecuteQuery(userQuery, userParams);
+
+                    if (userResult.Rows.Count == 0)
+                        return null; 
+
+                    int userId = Convert.ToInt32(userResult.Rows[0]["user_id"]);
+
+                    string photoQuery = "SELECT Photo FROM PersonalFiles WHERE UserID = @UserId";
+                    var photoParams = new Dictionary<string, object> { { "@UserId", userId } };
+                    var photoResult = DatabaseHelper.ExecuteQuery(photoQuery, photoParams);
+
+                    if (photoResult.Rows.Count == 0 || photoResult.Rows[0]["Photo"] == DBNull.Value)
+                        return null;
+
+                    _userPhoto = photoResult.Rows[0]["Photo"] as byte[];
+                    return _userPhoto;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Ошибка при загрузке фото: {ex.Message}");
+                    return null;
+                }
+            }
+        }
         private void LoadProjects()
         {
-            string query = "SELECT project_id, name, description, start_date, end_date, imagedata FROM Project";
+            string projectQuery = "SELECT project_id, name, description, start_date, imagedata FROM Project";
+            string projectObjectsQuery = "SELECT po.project_id, o.object_id, o.name, o.description, o.imagedata " +
+                                         "FROM ProjectObject po " +
+                                         "JOIN Object o ON po.object_id = o.object_id";
 
-            DataTable projectData = DatabaseHelper.ExecuteQuery(query);
+            DataTable projectData = DatabaseHelper.ExecuteQuery(projectQuery);
+            DataTable projectObjectsData = DatabaseHelper.ExecuteQuery(projectObjectsQuery);
+
+            var projectObjectsDict = projectObjectsData.AsEnumerable()
+                .GroupBy(row => Convert.ToInt32(row["project_id"]))
+                .ToDictionary(
+                    g => g.Key,
+                    g => g.Select(row => new ObjectItem
+                    {
+                        ObjectID = Convert.ToInt32(row["object_id"]),
+                        Name = row["name"].ToString(),
+                        Description = row["description"].ToString(),
+                        ImageData = row["imagedata"] as byte[]
+                    }).ToList()
+                );
 
             foreach (DataRow row in projectData.Rows)
             {
+                int projectId = Convert.ToInt32(row["project_id"]);
+
                 Projects.Add(new Project
                 {
-                    ProjectID = Convert.ToInt32(row["project_id"]),
+                    ProjectID = projectId,
                     ProjectName = row["name"].ToString(),
                     ProjectDescription = row["description"].ToString(),
                     StartDate = Convert.ToDateTime(row["start_date"]),
-                    EndDate = Convert.ToDateTime(row["end_date"]),
-                    ProjectImage = row["imagedata"] as byte[]
+                    ProjectImage = row["imagedata"] as byte[],
+                    ProjectObjects = new ObservableCollection<ObjectItem>(
+                        projectObjectsDict.ContainsKey(projectId) ? projectObjectsDict[projectId] : new List<ObjectItem>()
+                    )
                 });
             }
 
@@ -200,51 +274,60 @@ namespace Build_BuildersIS.ViewModels
         {
             try
             {
+                // Обновлённый SQL-запрос с правильными именами полей таблиц
                 string query = @"
                 SELECT T.task_id, T.description, T.status, T.deadline, 
-                O.location AS ObjectAddress, O.imagedata AS ObjectImage
+                       P.location AS ProjectAddress, P.imagedata AS ProjectImage
                 FROM Task T
-                JOIN Object O ON T.object_id = O.object_id
-                JOIN Users U ON T.user_id = U.user_id
-                WHERE U.name = @UserName";
+                JOIN UserTask UT ON T.task_id = UT.task_id
+                JOIN Project P ON T.project_id = P.project_id
+                JOIN Users U ON UT.user_id = U.user_id
+                WHERE U.name = @Username";
 
+                // Параметры для передачи в запрос
                 var parameters = new Dictionary<string, object>
                 {
-                    { "@UserName", Username }
+                    { "@Username", Username } // Поле Username из контекста текущего пользователя
                 };
 
+                // Выполнение запроса и получение данных
                 DataTable taskData = DatabaseHelper.ExecuteQuery(query, parameters);
 
+                // Очистка предыдущего списка задач
+                WorkerTasks.Clear();
+
+                // Заполнение списка задач на основе полученных данных
                 foreach (DataRow row in taskData.Rows)
                 {
                     WorkerTasks.Add(new WorkerTask
                     {
                         TaskID = Convert.ToInt32(row["task_id"]),
-                        ObjectAddress = row["ObjectAddress"].ToString(),
-                        TaskDescription = row["description"].ToString(),
-                        TaskStatus = row["status"].ToString(),
+                        TaskDescription = row["description"]?.ToString() ?? "Описание отсутствует",
+                        TaskStatus = row["status"]?.ToString() ?? "Не указан",
                         Deadline = Convert.ToDateTime(row["deadline"]),
-                        ObjectImage = row["ObjectImage"] as byte[]
+                        ObjectAddress = row["ProjectAddress"]?.ToString() ?? "Адрес отсутствует",
+                        ObjectImage = row["ProjectImage"] as byte[]
                     });
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Произошла ошибка: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                // Обработка ошибок при выполнении запроса или преобразовании данных
+                MessageBox.Show($"Произошла ошибка при загрузке задач: {ex.Message}",
+                                "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
 
         private void LoadRequests()
         {
             string query = @"
                 SELECT R.request_id, R.request_date, 
-                O.object_id, O.location AS ObjectAddress, O.imagedata AS ObjectImage,
+                R.project_id, P.description AS ProjectDescription, P.imagedata AS ProjectImage,
                 M.material_id, M.name AS MaterialName, RM.quantity AS MaterialQuantity, M.unit AS MaterialUnit
                 FROM Request R
                 JOIN RequestMaterial RM ON R.request_id = RM.request_id
                 JOIN Material M ON RM.material_id = M.material_id
-                JOIN Object O ON R.object_id = O.object_id
+                JOIN Project P ON R.project_id = P.project_id
                 WHERE R.status = 'PRO'
                 ORDER BY R.request_id, M.material_id;";
 
@@ -264,10 +347,9 @@ namespace Build_BuildersIS.ViewModels
                     var request = new MaterialRequest
                     {
                         RequestID = requestId,
-                        ObjectID = Convert.ToInt32(row["object_id"]),
-                        ObjectAddress = row["ObjectAddress"].ToString(),
+                        ProjectID = Convert.ToInt32(row["project_id"]),
                         RequestDate = Convert.ToDateTime(row["request_date"]),
-                        ObjectImage = row["ObjectImage"] as byte[],
+                        ProjectImage = row["ProjectImage"] as byte[],
                         Materials = new List<MaterialItem>()
                     };
 
@@ -358,6 +440,7 @@ namespace Build_BuildersIS.ViewModels
             }
 
             FilteredUsers = new ObservableCollection<User>(Users);
+
         }
 
         private void LoadMenuItems()
@@ -415,6 +498,221 @@ namespace Build_BuildersIS.ViewModels
             {
                 MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void OpenNewProject(Window window)
+        {
+            try
+            {
+                var overlay = window.FindName("Overlay") as UIElement;
+                if (overlay != null)
+                {
+                    overlay.Visibility = Visibility.Visible;
+                }
+
+                var projectWindow = new ProjectWindow()
+                {
+                    Owner = window,
+                    WindowStartupLocation = WindowStartupLocation.Manual
+                };
+                projectWindow.Left = window.Left + (window.Width - projectWindow.Width) / 2;
+                projectWindow.Top = window.Top + (window.Height - projectWindow.Height) / 2;
+
+                projectWindow.Closed += (sender, e) => WindowClosed(window);
+                projectWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            Projects.Clear();
+            LoadProjects();
+        }
+
+        private void OpenEditProject(Window window)
+        {
+            try
+            {
+                var selectedProject = SelectedProject;
+
+                if (selectedProject == null)
+                {
+                    MessageBox.Show("Пожалуйста, выберите проект для редактирования.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                var overlay = window.FindName("Overlay") as UIElement;
+                if (overlay != null)
+                {
+                    overlay.Visibility = Visibility.Visible;
+                }
+
+                var projectWindow = new ProjectWindow()
+                {
+                    Owner = window,
+                    WindowStartupLocation = WindowStartupLocation.Manual
+                };
+
+                var viewModel = projectWindow.DataContext as ProjectWindowViewModel;
+                if (viewModel != null)
+                {
+                    viewModel.IsEditMode = true;
+                    viewModel.EditingProjectID = selectedProject.ProjectID;
+
+                    viewModel.ProjectName = selectedProject.ProjectName;
+                    viewModel.ProjectDescription = selectedProject.ProjectDescription;
+                    viewModel.ProjectStartDate = selectedProject.StartDate;
+                    viewModel.ProjectImage = selectedProject.ProjectImage;
+
+                    viewModel.ProjectObjects = new ObservableCollection<ObjectItem>(selectedProject.ProjectObjects);
+                    viewModel.AllObjects = viewModel.LoadAllObjects(); // Загрузка доступных объектов
+                }
+
+                projectWindow.Left = window.Left + (window.Width - projectWindow.Width) / 2;
+                projectWindow.Top = window.Top + (window.Height - projectWindow.Height) / 2;
+
+                projectWindow.Closed += (sender, e) => WindowClosed(window);
+                projectWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            Projects.Clear();
+            LoadProjects();
+        }
+        private void CreateRequest(Window window)
+        {
+            try
+            {
+                string userQuery = "SELECT user_id FROM Users WHERE name = @UserName";
+                var userParams = new Dictionary<string, object> { { "@UserName", Username } };
+                var userResult = DatabaseHelper.ExecuteQuery(userQuery, userParams);
+                int userId = Convert.ToInt32(userResult.Rows[0]["user_id"]);
+
+                var overlay = window.FindName("Overlay") as UIElement;
+                if (overlay != null)
+                {
+                    overlay.Visibility = Visibility.Visible;
+                }
+
+                var requestWindow = new RequestWindow()
+                {
+                    DataContext = new RequestViewModel
+                    {
+                        UserID = userId,
+                        ProjectID = SelectedProject.ProjectID,
+                        ProjectImage = SelectedProject.ProjectImage,
+                        ProjectName = SelectedProject.ProjectName,
+                        ProjectDescription = SelectedProject.ProjectDescription
+
+                    },
+                    Owner = window,
+                    WindowStartupLocation = WindowStartupLocation.Manual
+                };
+
+                requestWindow.Left = window.Left + (window.Width - requestWindow.Width) / 2;
+                requestWindow.Top = window.Top + (window.Height - requestWindow.Height) / 2;
+
+                requestWindow.Closed += (sender, e) => WindowClosed(window);
+                requestWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            LoadRequests();
+        }
+        private void CreateTask(Window window)
+        {
+            try
+            {
+                string userQuery = "SELECT user_id FROM Users WHERE name = @UserName";
+                var userParams = new Dictionary<string, object> { { "@UserName", Username } };
+                var userResult = DatabaseHelper.ExecuteQuery(userQuery, userParams);
+                int userId = Convert.ToInt32(userResult.Rows[0]["user_id"]);
+
+                var overlay = window.FindName("Overlay") as UIElement;
+                if (overlay != null)
+                {
+                    overlay.Visibility = Visibility.Visible;
+                }
+
+                var taskWindow = new TaskWindow()
+                {
+                    DataContext = new TaskViewModel
+                    {
+                        UserID = userId,
+                        ProjectID = SelectedProject.ProjectID,
+                        ProjectImage = SelectedProject.ProjectImage,
+                        ProjectName = SelectedProject.ProjectName,
+
+                    },
+                    Owner = window,
+                    WindowStartupLocation = WindowStartupLocation.Manual
+                };
+
+                taskWindow.Left = window.Left + (window.Width - taskWindow.Width) / 2;
+                taskWindow.Top = window.Top + (window.Height - taskWindow.Height) / 2;
+
+                taskWindow.Closed += (sender, e) => WindowClosed(window);
+                taskWindow.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            //LoadWorkerTasks();
+        }
+        private void DeleteProject(Window window)
+        {
+            try
+            {
+                var selectedProject = SelectedProject;
+
+                if (selectedProject == null)
+                {
+                    MessageBox.Show("Пожалуйста, выберите проект для удаления.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
+
+                var result = MessageBox.Show(
+                    $"Вы уверены, что хотите удалить проект \"{selectedProject.ProjectName}\"?",
+                    "Подтверждение удаления",
+                    MessageBoxButton.YesNo,
+                    MessageBoxImage.Question
+                );
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    // Удаление связей проекта с объектами
+                    string deleteProjectObjectsQuery = "DELETE FROM ProjectObject WHERE project_id = @project_id";
+                    DatabaseHelper.ExecuteNonQuery(deleteProjectObjectsQuery, new Dictionary<string, object>
+                    {
+                        { "@project_id", selectedProject.ProjectID }
+                    });
+
+                    // Удаление самого проекта
+                    string deleteProjectQuery = "DELETE FROM Project WHERE project_id = @project_id";
+                    DatabaseHelper.ExecuteNonQuery(deleteProjectQuery, new Dictionary<string, object>
+                    {
+                        { "@project_id", selectedProject.ProjectID }
+                    });
+
+                    MessageBox.Show("Проект успешно удалён.", "Удаление", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    Projects.Clear();
+                    LoadProjects();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при удалении проекта: {ex.Message}\nСтек вызовов: {ex.StackTrace}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        private bool CanEditProject(object param)
+        { 
+            return SelectedProject != null;
         }
 
         private void OpenPersonalFile(Window window, string username)
@@ -491,7 +789,10 @@ namespace Build_BuildersIS.ViewModels
                         Address = SelectedUser.Address,
                         WorkBookNumber = SelectedUser.WorkBookNumber,
                         BirthDate = SelectedUser.BirthDate,
-                        Photo = SelectedUser.Photo
+                        Photo = SelectedUser.Photo,
+                        Role = SelectedUser.Role,
+
+                        IsRoleEditable = true
                     },
                     Owner = window,
                     WindowStartupLocation = WindowStartupLocation.Manual,
@@ -603,8 +904,11 @@ namespace Build_BuildersIS.ViewModels
             managerListBox.Visibility = Visibility.Visible;
             UserRole = "MNG";
             MenuItems.Clear();
-            MenuItems.Add(new MenuItem { Title = "Создать новый проект", Command = OpenCatalogCommand });
-            MenuItems.Add(new MenuItem { Title = "Запрос на материалы", Command = OpenCatalogCommand });
+            MenuItems.Add(new MenuItem { Title = "Новый проект", Command = OpenNewProjectCommand });
+            MenuItems.Add(new MenuItem { Title = "Редактировать", Command = OpenEditProjectCommand });
+            MenuItems.Add(new MenuItem { Title = "Удалить", Command = DeleteProjectCommand });
+            MenuItems.Add(new MenuItem { Title = "Запрос на материалы", Command = CreateRequestCommand });
+            MenuItems.Add(new MenuItem { Title = "Создать задачу", Command =  CreateTaskCommand});
             MenuItems.Add(new MenuItem { Title = "Вернутся", Command = GoToAdminFunctionalityCommand });
         }
 
@@ -667,7 +971,6 @@ namespace Build_BuildersIS.ViewModels
                     FilteredRequests = new ObservableCollection<MaterialRequest>(
                         Requests.Where(r =>
                         r.RequestID.ToString().Contains(lowerQueryW) ||
-                        r.ObjectAddress.ToLower().Contains(lowerQueryW) ||
                         r.MaterialsSummary.ToLower().Contains(lowerQueryW)
                         )
                     );

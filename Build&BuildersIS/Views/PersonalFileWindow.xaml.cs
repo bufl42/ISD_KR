@@ -48,5 +48,6 @@ namespace Build_BuildersIS.Views
             e.Handled = true;
             e.Effects = e.Data.GetDataPresent(DataFormats.FileDrop) ? DragDropEffects.Copy : DragDropEffects.None;
         }
+
     }
 }

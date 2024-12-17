@@ -60,7 +60,7 @@ namespace Build_BuildersIS
                     break;
             }
             BitmapImage bitmap = new BitmapImage(new Uri(imagePath));
-            UserImage.Source = bitmap;
+            UserIcon.Source = bitmap;
         }
 
 

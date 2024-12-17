@@ -22,6 +22,14 @@ namespace Build_BuildersIS.ViewModels
         private string _workBookNumber;
         private DateTime? _birthDate;
         private byte[] _photo;
+        private string _role;
+        private bool _isRoleEditable;
+        private Dictionary<string, string> _roleOptions;
+        public Dictionary<string, string> RoleOptions
+        {
+            get => _roleOptions;
+            set { _roleOptions = value; OnPropertyChanged(); }
+        }
 
         public string LastName
         {
@@ -45,6 +53,17 @@ namespace Build_BuildersIS.ViewModels
         {
             get => _address;
             set { _address = value; OnPropertyChanged(); }
+        }
+
+        public string Role
+        {
+            get => _role;
+            set
+            {
+                _role = value;
+                OnPropertyChanged();
+                SaveRole();
+            }
         }
 
         public string WorkBookNumber
@@ -75,6 +94,12 @@ namespace Build_BuildersIS.ViewModels
             }
         }
 
+        public bool IsRoleEditable
+        {
+            get => _isRoleEditable;
+            set { _isRoleEditable = value; OnPropertyChanged(); }
+        }
+
         public byte[] PhotoPreview => Photo;
 
         public ICommand SaveCommand => new RelayCommand(SavePersonalFile, CanSavePersonalFile);
@@ -82,6 +107,13 @@ namespace Build_BuildersIS.ViewModels
 
         public PersonalFileViewModel()
         {
+            RoleOptions = new Dictionary<string, string>
+            {
+                { "WRK", "Рабочий" },
+                { "WHW", "Кладовщик" },
+                { "ADM", "Администратор" },
+                { "MNG", "Менеджер проекта" }
+            };
             LoadPersonalFile();
         }
 
@@ -93,7 +125,12 @@ namespace Build_BuildersIS.ViewModels
 
         private void LoadPersonalFile()
         {
-            string query = "SELECT LastName, FirstName, MiddleName, Address, WorkBookNumber, BirthDate, Photo FROM PersonalFiles WHERE UserID = @UserId";
+            string query = @"
+            SELECT pf.LastName, pf.FirstName, pf.MiddleName, pf.Address, pf.WorkBookNumber, 
+                   pf.BirthDate, pf.Photo, u.role 
+            FROM PersonalFiles pf
+            INNER JOIN Users u ON pf.UserID = u.user_id
+            WHERE pf.UserID = @UserId";
             var parameters = new Dictionary<string, object> { { "@UserId", _userID } };
 
             var result = DatabaseHelper.ExecuteQuery(query, parameters);
@@ -107,24 +144,41 @@ namespace Build_BuildersIS.ViewModels
                 WorkBookNumber = row["WorkBookNumber"] as string;
                 BirthDate = row["BirthDate"] as DateTime?;
                 Photo = row["Photo"] as byte[];
+                Role = row["role"] as string;
+
+                IsRoleEditable = Role == "ADM";
+                Role = RoleOptions.ContainsKey(row["role"] as string) ? row["role"] as string : null;
             }
+        }
+
+        private void SaveRole()
+        {
+            if (!IsRoleEditable) return;
+
+            string query = "UPDATE Users SET role = @Role WHERE user_id = @UserId";
+            var parameters = new Dictionary<string, object>
+            {
+                { "@Role", Role },
+                { "@UserId", UserID }
+            };
+            DatabaseHelper.ExecuteNonQuery(query, parameters);
         }
 
         private void SavePersonalFile(object param)
         {
             string query = @"
-                IF EXISTS (SELECT 1 FROM PersonalFiles WHERE UserID = @UserId)
-                BEGIN
-                    UPDATE PersonalFiles
-                    SET LastName = @LastName, FirstName = @FirstName, MiddleName = @MiddleName,
-                        Address = @Address, WorkBookNumber = @WorkBookNumber, BirthDate = @BirthDate, Photo = @Photo
-                    WHERE UserID = @UserId
-                END
-                ELSE
-                BEGIN
-                    INSERT INTO PersonalFiles (UserID, LastName, FirstName, MiddleName, Address, WorkBookNumber, BirthDate, Photo)
-                    VALUES (@UserId, @LastName, @FirstName, @MiddleName, @Address, @WorkBookNumber, @BirthDate, @Photo)
-                END";
+            IF EXISTS (SELECT 1 FROM PersonalFiles WHERE UserID = @UserId)
+            BEGIN
+                UPDATE PersonalFiles
+                SET LastName = @LastName, FirstName = @FirstName, MiddleName = @MiddleName,
+                    Address = @Address, WorkBookNumber = @WorkBookNumber, BirthDate = @BirthDate, Photo = @Photo
+                WHERE UserID = @UserId
+            END
+            ELSE
+            BEGIN
+                INSERT INTO PersonalFiles (UserID, LastName, FirstName, MiddleName, Address, WorkBookNumber, BirthDate, Photo)
+                VALUES (@UserId, @LastName, @FirstName, @MiddleName, @Address, @WorkBookNumber, @BirthDate, @Photo)
+            END";
 
             var parameters = new Dictionary<string, object>
             {
@@ -145,6 +199,7 @@ namespace Build_BuildersIS.ViewModels
                 window.Close();
             }
         }
+
         private bool CanSavePersonalFile(object param)
         {
             return !string.IsNullOrWhiteSpace(LastName) &&

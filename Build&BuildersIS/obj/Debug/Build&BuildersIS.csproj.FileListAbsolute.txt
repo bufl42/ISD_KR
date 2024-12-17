@@ -90,3 +90,11 @@ C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\PersonalFileWindo
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\PersonalFileWindow.baml
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\ChangePasswordWindow.g.cs
 C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\ChangePasswordWindow.baml
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\ProjectWindow.g.cs
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\ProjectWindow.baml
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\ObjectWindow.g.cs
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\ObjectWindow.baml
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\RequestWindow.g.cs
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\RequestWindow.baml
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\TaskWindow.g.cs
+C:\Users\denbu\Desktop\ISD_KR\Build&BuildersIS\obj\Debug\Views\TaskWindow.baml

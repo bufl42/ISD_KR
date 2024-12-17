@@ -6,7 +6,7 @@
         xmlns:vm="clr-namespace:Build_BuildersIS.ViewModels"
         xmlns:ms="clr-namespace:Build_BuildersIS.Models"
         mc:Ignorable="d" WindowStyle="None" AllowsTransparency="True" Background="Transparent" WindowStartupLocation="CenterScreen"
-        Title="PersonalFileWindow" Height="380" Width="520">
+        Title="PersonalFileWindow" Height="408" Width="520">
     <Window.DataContext>
         <vm:PersonalFileViewModel/>
     </Window.DataContext>
@@ -35,25 +35,25 @@
 
             <!-- Основное содержимое -->
             <Grid Grid.Row="1" Margin="0,2,0,0">
-                <Label Content="Фамилия" Foreground="#FFB8B8B8" FontSize="17" Height="30" Margin="248,14,187,297"/>
-                <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Height="30" Width="250" Margin="248,44,20,267" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
+                <Label Content="Фамилия" Foreground="#FFB8B8B8" FontSize="17" Height="30" Margin="248,7,187,332"/>
+                <TextBox Text="{Binding LastName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Height="30" Width="250" Margin="248,37,20,302" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
 
-                <Label Content="Имя" Margin="248,74,200,237" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="70"/>
-                <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Height="30" Width="250" Margin="248,104,20,207" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
+                <Label Content="Имя" Margin="248,67,200,272" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="70"/>
+                <TextBox Text="{Binding FirstName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Height="30" Width="250" Margin="248,97,20,242" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17"/>
 
-                <Label Content="Отчество" Margin="248,134,187,177" Foreground="#FFB8B8B8" FontSize="17" Height="30"/>
-                <TextBox Text="{Binding MiddleName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="248,164,20,147" Height="30" Width="250"/>
+                <Label Content="Отчество" Margin="248,127,187,212" Foreground="#FFB8B8B8" FontSize="17" Height="30"/>
+                <TextBox Text="{Binding MiddleName, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="248,157,20,182" Height="30" Width="250"/>
 
-                <Label Content="Адрес" Margin="20,199,428,112" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="70"/>
-                <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="20,229,248,82" Height="30" Width="250"/>
+                <Label Content="Адрес" Margin="20,195,428,144" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="70"/>
+                <TextBox Text="{Binding Address, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="20,228,248,111" Height="30" Width="250"/>
 
-                <Label Content="Номер трудовой книжки" Margin="20,259,292,52" Foreground="#FFB8B8B8" FontSize="17" Height="30"/>
-                <TextBox Text="{Binding WorkBookNumber, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="20,289,248,22" Height="30" Width="250"/>
+                <Label Content="Номер трудовой книжки" Margin="20,258,292,81" Foreground="#FFB8B8B8" FontSize="17" Height="30"/>
+                <TextBox Text="{Binding WorkBookNumber, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" BorderBrush="#FFB8B8B8" Style="{StaticResource NoSelectTextBoxStyle}" FontSize="17" Margin="20,288,248,51" Height="30" Width="250"/>
 
-                <Label Content="Дата рождения" Margin="283,199,65,112" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="170"/>
-                <DatePicker SelectedDate="{Binding BirthDate, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" FontSize="17" Margin="283,229,20,82"  Height="30"/>
+                <Label Content="Дата рождения" Margin="278,195,70,144" Foreground="#FFB8B8B8" FontSize="17" Height="30" Width="170"/>
+                <DatePicker SelectedDate="{Binding BirthDate, UpdateSourceTrigger=PropertyChanged}" Background="Transparent" FontSize="17" Margin="278,228,25,111"  Height="30"/>
 
-                <Border BorderBrush="Gray" BorderThickness="1" Margin="20,14,318,147" AllowDrop="True" Drop="ImageDrop" PreviewDragOver="ImagePreviewDragOver" Width="180" Height="180" >
+                <Border BorderBrush="Gray" BorderThickness="1" Margin="20,10,318,179" AllowDrop="True" Drop="ImageDrop" PreviewDragOver="ImagePreviewDragOver" Width="180" Height="180" >
                     <Grid>
                         <TextBlock Text="Перетащите" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="18" Width="104" Height="40" Margin="0,24,0,0"/>
                         <TextBlock Text="изображение" Foreground="#FFB8B8B8" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Width="116" Height="40"/>
@@ -62,13 +62,27 @@
                     </Grid>
                 </Border>
 
-                <Button Content="Сохранить" Command="{Binding SaveCommand}" FontSize="16" FontFamily="Impact" Margin="397,289,20,22" Style="{StaticResource FlatYellowButtonStyle}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
-                <Button Content="Изм. пароль" Command="{Binding ChangePasswordCommand}" FontSize="16" FontFamily="Impact" Margin="283,289,134,22" Style="{StaticResource FlatYellowButtonStyle}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Button Content="Сохранить" Command="{Binding SaveCommand}" FontSize="16" FontFamily="Impact" Margin="397,329,20,10" Style="{StaticResource FlatYellowButtonStyle}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <Button Content="Изм. пароль" Command="{Binding ChangePasswordCommand}" FontSize="16" FontFamily="Impact" Margin="283,329,134,10" Style="{StaticResource FlatYellowButtonStyle}" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}"/>
+                <ComboBox Name="RoleComboBox"
+                          ItemsSource="{Binding RoleOptions}"
+                          SelectedValue="{Binding Role, UpdateSourceTrigger=PropertyChanged}"
+                          SelectedValuePath="Key"
+                          DisplayMemberPath="Value"
+                          IsEnabled="{Binding IsRoleEditable}"
+                          HorizontalAlignment="Left"
+                          Margin="278,288,0,0"
+                          VerticalAlignment="Top"
+                          Width="215"
+                          Height="30"
+                          FontSize="16"
+                          FontFamily="Impact" />
             </Grid>
 
             <Border Name="Overlay" Background="#80000000" Visibility="Collapsed" CornerRadius="15" Grid.RowSpan="3" Grid.ColumnSpan="2">
                 <Grid />
             </Border>
+            <Label Content="Роль" Margin="278,258,186,81" Foreground="#FFB8B8B8" FontSize="17" Grid.Row="1"/>
         </Grid>
     </Border>
 </Window>
